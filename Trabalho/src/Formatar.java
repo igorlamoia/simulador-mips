@@ -13,7 +13,7 @@ public class Formatar {
 	private int contador = 0;
 	private List<String> codigo = new ArrayList<>();
 	private List<String> codigoFormatado = new ArrayList<>();
-	private Map<String, Integer> labels = new HashMap<>(); // label => Posição
+	private Map<String, Integer> labels = new HashMap<>(); // label => Posiï¿½ï¿½o
 	private Map<Integer, String> branchs = new HashMap<>(); // numeroLinha => string linha
 	private Map<Integer, String> jumps = new HashMap<>(); // numeroLinha => string linha
 
@@ -25,7 +25,7 @@ public class Formatar {
 
 	private void formatarArquivo () throws IOException {
 		for (String linha : Files.readAllLines(this.arquivoInicial, StandardCharsets.UTF_8)) {
-			linha = linha.split("#")[0].trim(); // tudo que vem antes do comentário, ignorando o resto
+			linha = linha.split("#")[0].trim(); // tudo que vem antes do comentï¿½rio, ignorando o resto
 			
 			if(linha.contains(":"))
 				linha = this.pegaLabelRemoveLinha(linha);
@@ -36,7 +36,7 @@ public class Formatar {
 		}
 
 		this.trocarBranchsJumpsPorNumero();
-
+		new MipsSimulator(this.codigoFormatado).setVisible(true);   
 		Files.write(this.arquivoFormatado, this.codigoFormatado);
 	}
 
@@ -47,7 +47,7 @@ public class Formatar {
 		return linha;
 	}
 
-	// Somente se a linha for preenchida com código iremos adicionar 
+	// Somente se a linha for preenchida com cï¿½digo iremos adicionar 
 	private void adicionarLinhaValida (String linha) {
 		if(! linha.isBlank()) {
 			this.codigo.add(linha);
@@ -55,7 +55,7 @@ public class Formatar {
 		}
 	}
 
-	// O this.contador já pulou a linha, agr sim, verifico se era branch (sempre uma instrução a  frente)
+	// O this.contador jï¿½ pulou a linha, agr sim, verifico se era branch (sempre uma instruï¿½ï¿½o aï¿½ frente)
 	// Se contem branchs put(chave: nome da label de destino, valor: numero linha atual)
 	private void verificarBranch (String linha) {
 		if(linha.contains("beq") || linha.contains("bne"))

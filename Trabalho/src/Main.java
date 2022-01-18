@@ -8,10 +8,10 @@ public class Main {
         Path arquivoFormatado = Paths.get("cod_asm_formatado.txt");
         Path arquivoHexadecimal = Paths.get("cod_hexadecimal.txt");
         
-        //A partir de um texto com código em assembly MIPS (cod_asm.txt)
-        //Será gerado um arquivo em hexadecimal (cod_hexadecimal.txt) contendo cada instrução em uma linha do arquivo
+        //A partir de um texto com cï¿½digo em assembly MIPS (cod_asm.txt)
+        //Serï¿½ gerado um arquivo em hexadecimal (cod_hexadecimal.txt) contendo cada instruï¿½ï¿½o em uma linha do arquivo
         new Formatar(Paths.get("cod_asm.txt"), Paths.get("cod_asm_formatado.txt")); // (arquivo_inicial, arquivo_formatado)
-        Montagem.paraHexadecimal(arquivoFormatado, arquivoHexadecimal);       
+        Montagem.paraHexadecimal(arquivoFormatado, arquivoHexadecimal);
   
     }
 
