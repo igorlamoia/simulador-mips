@@ -13,17 +13,30 @@ public class MipsSimulator extends javax.swing.JFrame {
     /**
      * Creates new form MipsSimulator
      */
-    private List<String> Linhas = new ArrayList<>();
-    private String console = "";
-
-    public MipsSimulator(List<String> Linhas) {
+//    private List<String> Linhas = new ArrayList<>();
+    public String console = "";
+    public List<String> codigoCompilado = new ArrayList<>();
+    public Integer PC = 0;
+    public MipsSimulator() {
         initComponents();
-        this.Linhas = Linhas;
-        this.jTextS0.setText("testando sapoha");
-
-
     }
-
+    // public mudaRegistrador(String nomeReg, String valor) {
+    //     switch (nomeReg) {
+    //         case "$S0":
+    //         MipsSimulator.jTextS0.setText(valor);
+    //             break;
+        
+    //         default:
+    //             break;
+    //     }
+    // } 
+    // public getRegistrador(String nomeReg) {
+    //         jTextS0.getText(valor);
+    //         jTextS1.getText(valor);
+    //         jTextS0.getText(valor);
+    //         jTextS0.getText(valor);
+    //     }
+    // } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,10 +115,13 @@ public class MipsSimulator extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaConsole = new javax.swing.JTextArea();
         jButton_reset = new javax.swing.JButton();
+        jButton_run = new javax.swing.JButton();
+        jLabelPC = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("DaddyTimeMono NF", 3, 48)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Simulador Mips");
 
         jButton_clock_down.setFont(new java.awt.Font("JetBrains Mono", 1, 11)); // NOI18N
@@ -125,7 +141,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jPanelInterfaceRegis.setLayout(jPanelInterfaceRegisLayout);
         jPanelInterfaceRegisLayout.setHorizontalGroup(
             jPanelInterfaceRegisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 296, Short.MAX_VALUE)
         );
         jPanelInterfaceRegisLayout.setVerticalGroup(
             jPanelInterfaceRegisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -485,7 +501,7 @@ public class MipsSimulator extends javax.swing.JFrame {
                                     .addComponent(jTextValueZero, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelRegistradoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextS0)
+                    .addComponent(jTextS0, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
                     .addComponent(jTextS1)
                     .addComponent(jTextS2)
                     .addComponent(jTextS3)
@@ -502,9 +518,9 @@ public class MipsSimulator extends javax.swing.JFrame {
                     .addComponent(jTextT5, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextT6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextT7, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextZero, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextT0)
-                    .addComponent(jTextT1))
+                    .addComponent(jTextT1)
+                    .addComponent(jTextZero))
                 .addContainerGap())
         );
         jPanelRegistradoresLayout.setVerticalGroup(
@@ -515,7 +531,7 @@ public class MipsSimulator extends javax.swing.JFrame {
                     .addComponent(jLabelNomeRegistrador)
                     .addComponent(jLabelValorRegistrador)
                     .addComponent(jLabelNumeroRegistrador))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelRegistradoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jTextNomeZero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextValueZero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -641,58 +657,76 @@ public class MipsSimulator extends javax.swing.JFrame {
             }
         });
 
+        jButton_run.setFont(new java.awt.Font("JetBrains Mono", 1, 11)); // NOI18N
+        jButton_run.setText("Run");
+        jButton_run.setActionCommand("jButton_reset");
+        jButton_run.setBorder(null);
+        jButton_run.setBorderPainted(false);
+        jButton_run.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_run.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton_run.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_runAction(evt);
+            }
+        });
+
+        jLabelPC.setFont(new java.awt.Font("Dank Mono", 1, 24)); // NOI18N
+        jLabelPC.setText("PC: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextLinhaLida, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanelInterfaceRegis, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(550, 550, 550))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(17, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextLinhaLida, javax.swing.GroupLayout.PREFERRED_SIZE, 831, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton_clock_up, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton_clock_down, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 971, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_run, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelPC, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton_clock_down, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_clock_up, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(683, 683, 683)
+                .addComponent(jPanelInterfaceRegis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelRegistradores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(layout.createSequentialGroup()
+            .addComponent(jPanelRegistradores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextLinhaLida, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextLinhaLida, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton_clock_up, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton_clock_down, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton_clock_up, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton_run, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton_clock_down, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabelPC, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addGap(18, 18, 18)
-                .addComponent(jPanelInterfaceRegis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addComponent(jPanelRegistradores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(jPanelInterfaceRegis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         jLabel1.getAccessibleContext().setAccessibleName("jlabel_titulo");
@@ -701,25 +735,29 @@ public class MipsSimulator extends javax.swing.JFrame {
         jButton_clock_down.getAccessibleContext().setAccessibleDescription("Botão para descer clock  (escrever)");
         jTextLinhaLida.getAccessibleContext().setAccessibleName("Linha lida do comando");
         jButton_reset.getAccessibleContext().setAccessibleName("Limpar programa");
+        jButton_run.getAccessibleContext().setAccessibleName("Botão rodar");
+        jButton_run.getAccessibleContext().setAccessibleDescription("Botão de compilar código");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_clock_downAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_clock_downAction
         // TODO add your handling code here:
+        jButton_clock_down.setEnabled(false);
+        jButton_clock_up.setEnabled(true);
+        PC++;
+        jLabelPC.setText("PC: " + PC);
     }//GEN-LAST:event_jButton_clock_downAction
 
     private void jButton_clock_upAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_clock_upAction
         // TODO add your handling code here:
-        for(String linha : this.jTextAreaConsole.getText().split("\n")) {
-            console += linha+"\n";
+        jButton_clock_up.setEnabled(false);
+        jButton_clock_down.setEnabled(true);
+        if(PC > codigoCompilado.size()-1) { 
+            
         }
-        System.out.println(console);
+        jTextLinhaLida.setText(codigoCompilado.get(PC));
         
-    
-        for(String i : console.split("\n")) {
-            // System.out.println(i);
-        }
     }//GEN-LAST:event_jButton_clock_upAction
 
     private void jTextNomeS9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeS9ActionPerformed
@@ -804,7 +842,28 @@ public class MipsSimulator extends javax.swing.JFrame {
 
     private void jButton_resetAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_resetAction
         // TODO add your handling code here:
+        codigoCompilado.clear();
+        jButton_run.setEnabled(true);
+        jButton_clock_down.setEnabled(true);
+        jButton_clock_up.setEnabled(true);
+        jTextLinhaLida.setText("");
+        jLabelPC.setText("PC: ");
+        PC = 0;
     }//GEN-LAST:event_jButton_resetAction
+
+    private void jButton_runAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_runAction
+        // TODO add your handling code here:
+        for(String linha : this.jTextAreaConsole.getText().split("\n")) {
+            codigoCompilado.add(linha);
+            console += linha+"\n";
+        }
+        System.out.println("Código compilado:\n" + codigoCompilado);
+        jButton_run.setEnabled(false);
+    
+        // for(String i : console.split("\n")) {
+            // System.out.println(i);
+        // }
+    }//GEN-LAST:event_jButton_runAction
 
     /**
      * @param args the command line arguments
@@ -836,7 +895,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                // new MipsSimulator().setVisible(true);
+                 new MipsSimulator().setVisible(true);
             }
         });
     }
@@ -846,9 +905,11 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JButton jButton_clock_down;
     private javax.swing.JButton jButton_clock_up;
     private javax.swing.JButton jButton_reset;
+    private javax.swing.JButton jButton_run;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelNomeRegistrador;
     private javax.swing.JLabel jLabelNumeroRegistrador;
+    private javax.swing.JLabel jLabelPC;
     private javax.swing.JLabel jLabelValorRegistrador;
     private javax.swing.JPanel jPanelInterfaceRegis;
     private javax.swing.JPanel jPanelRegistradores;
