@@ -36,7 +36,7 @@ public class Formatar {
 		}
 
 		this.trocarBranchsJumpsPorNumero();
-		new MipsSimulator(this.codigoFormatado).setVisible(true);   
+		// new MipsSimulator(this.codigoFormatado).setVisible(true);   
 		Files.write(this.arquivoFormatado, this.codigoFormatado);
 	}
 

@@ -43,8 +43,16 @@
                   </Group>
                   <Component id="jLabel1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="683" max="-2" attributes="0"/>
-              <Component id="jPanelInterfaceRegis" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="683" max="-2" attributes="0"/>
+                      <Component id="jPanelInterfaceRegis" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelRegistradores" min="-2" max="-2" attributes="0"/>
           </Group>
@@ -52,19 +60,19 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="1" attributes="0">
-          <Component id="jPanelRegistradores" alignment="1" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="46" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="219" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jTextLinhaLida" min="-2" pref="37" max="-2" attributes="0"/>
+          <Component id="jPanelRegistradores" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="219" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jTextLinhaLida" min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jButton_clock_up" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                                   <Component id="jButton_run" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
@@ -76,17 +84,15 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabelPC" min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
-                      <Component id="jPanelInterfaceRegis" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jPanelInterfaceRegis" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -119,6 +125,7 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Hand Cursor"/>
         </Property>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
       <AccessibilityProperties>
@@ -134,7 +141,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="296" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -158,6 +165,7 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Hand Cursor"/>
         </Property>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
       <Events>
@@ -192,8 +200,8 @@
                               <Component id="jTextNomeS5" min="-2" pref="62" max="-2" attributes="0"/>
                               <Component id="jTextNomeS6" min="-2" pref="62" max="-2" attributes="0"/>
                               <Component id="jTextNomeS7" min="-2" pref="62" max="-2" attributes="0"/>
-                              <Component id="jTextNomeS8" min="-2" pref="62" max="-2" attributes="0"/>
-                              <Component id="jTextNomeS9" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="jTextNomeT8" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="jTextNomeT9" min="-2" pref="62" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -423,12 +431,12 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jTextValueT8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextNomeS8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextNomeT8" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jTextValueT9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextNomeS9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextNomeT9" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -443,41 +451,49 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="jTextS1">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextS2">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextS3">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextS4">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextS5">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextS6">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextS7">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextS0">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -546,11 +562,13 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextT8">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextT9">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -573,7 +591,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeS0">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$S0"/>
+            <Property name="text" type="java.lang.String" value="$s0"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeS0ActionPerformed"/>
@@ -582,7 +600,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeS1">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$S1"/>
+            <Property name="text" type="java.lang.String" value="$s1"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeS1ActionPerformed"/>
@@ -591,7 +609,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeS2">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$S2"/>
+            <Property name="text" type="java.lang.String" value="$s2"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeS2ActionPerformed"/>
@@ -600,7 +618,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeS3">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$S3"/>
+            <Property name="text" type="java.lang.String" value="$s3"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeS3ActionPerformed"/>
@@ -609,7 +627,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeS4">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$S4"/>
+            <Property name="text" type="java.lang.String" value="$s4"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeS4ActionPerformed"/>
@@ -618,7 +636,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeS5">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$S5"/>
+            <Property name="text" type="java.lang.String" value="$s5"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeS5ActionPerformed"/>
@@ -627,7 +645,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeS6">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$S6"/>
+            <Property name="text" type="java.lang.String" value="$s6"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeS6ActionPerformed"/>
@@ -636,34 +654,34 @@
         <Component class="javax.swing.JTextField" name="jTextNomeS7">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$S7"/>
+            <Property name="text" type="java.lang.String" value="$s7"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeS7ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextNomeS8">
+        <Component class="javax.swing.JTextField" name="jTextNomeT8">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$T8"/>
+            <Property name="text" type="java.lang.String" value="$t8"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeS8ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeT8ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextNomeS9">
+        <Component class="javax.swing.JTextField" name="jTextNomeT9">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$T9"/>
+            <Property name="text" type="java.lang.String" value="$t9"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeS9ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeT9ActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextNomeT0">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$T0"/>
+            <Property name="text" type="java.lang.String" value="$t0"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
@@ -678,11 +696,13 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextT0">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextT1">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -695,7 +715,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeT1">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$T1"/>
+            <Property name="text" type="java.lang.String" value="$t1"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeT1ActionPerformed"/>
@@ -704,7 +724,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeT2">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$T2"/>
+            <Property name="text" type="java.lang.String" value="$t2"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeT2ActionPerformed"/>
@@ -712,6 +732,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextT2">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -724,7 +745,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeT3">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$T3"/>
+            <Property name="text" type="java.lang.String" value="$t3"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeT3ActionPerformed"/>
@@ -732,6 +753,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextT3">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -743,6 +765,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextT4">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -755,7 +778,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeT4">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$T4"/>
+            <Property name="text" type="java.lang.String" value="$t4"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeT4ActionPerformed"/>
@@ -764,7 +787,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeT5">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$T5"/>
+            <Property name="text" type="java.lang.String" value="$t5"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeT5ActionPerformed"/>
@@ -778,6 +801,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextT5">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -790,7 +814,7 @@
         <Component class="javax.swing.JTextField" name="jTextNomeT6">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$T6"/>
+            <Property name="text" type="java.lang.String" value="$t6"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeT6ActionPerformed"/>
@@ -798,13 +822,14 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextT6">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextNomeT7">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="$T7"/>
+            <Property name="text" type="java.lang.String" value="$t7"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeT7ActionPerformed"/>
@@ -818,6 +843,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextT7">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -847,6 +873,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextZero">
           <Properties>
+            <Property name="text" type="java.lang.String" value="0x00000000"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -922,5 +949,36 @@
         <Property name="text" type="java.lang.String" value="PC: "/>
       </Properties>
     </Component>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabelImagem" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jLabelImagem" min="-2" pref="787" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabelImagem">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="D:\CEFET\Organizacao_Computadores\projetos\simulador-mips\images\mips.png"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>
