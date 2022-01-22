@@ -749,6 +749,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         );
 
         jTextAreaConsole.setColumns(20);
+        jTextAreaConsole.setFont(new java.awt.Font("Dank Mono", 2, 18)); // NOI18N
         jTextAreaConsole.setRows(5);
         jScrollPane1.setViewportView(jTextAreaConsole);
 
@@ -969,14 +970,19 @@ public class MipsSimulator extends javax.swing.JFrame {
         habilitaRegisters();
         jButton_clock_up.setEnabled(false);
         jButton_clock_down.setEnabled(false);
+        jTextAreaConsole.setEnabled(true);
     }//GEN-LAST:event_jButton_resetAction
 
     private void jButton_runAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_runAction
         // TODO add your handling code here:
+        jTextAreaConsole.setEnabled(false);
         for(String linha : this.jTextAreaConsole.getText().split("\n")) {
             codigoCompilado.add(linha);
             console += linha+"\n";
         }
+        codigoCompilado = new Formatar(codigoCompilado).formatarCodigo(); 
+        System.out.println("Formatadim: " + codigoCompilado);
+        System.out.println("Não formatado: " + console);
         if(PC > (codigoCompilado.size()-1)) 
             jButton_clock_up.setEnabled(false);
         else 

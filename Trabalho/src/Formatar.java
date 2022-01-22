@@ -1,15 +1,10 @@
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Formatar {
-	private Path arquivoInicial = null;
-	private Path arquivoFormatado = null;
+	private List<String> codigoInicial =  new ArrayList<>();
 	private int contador = 0;
 	private List<String> codigo = new ArrayList<>();
 	private List<String> codigoFormatado = new ArrayList<>();
@@ -17,14 +12,12 @@ public class Formatar {
 	private Map<Integer, String> branchs = new HashMap<>(); // numeroLinha => string linha
 	private Map<Integer, String> jumps = new HashMap<>(); // numeroLinha => string linha
 
-	public Formatar (Path arquivoInicial, Path arquivoFormatado) throws IOException {
-		this.arquivoInicial = arquivoInicial;
-		this.arquivoFormatado = arquivoFormatado;
-		this.formatarArquivo();
+	public Formatar (List<String> codigo)  {
+		this.codigoInicial = codigo;
 	}
 
-	private void formatarArquivo () throws IOException {
-		for (String linha : Files.readAllLines(this.arquivoInicial, StandardCharsets.UTF_8)) {
+	public List<String> formatarCodigo ()  {
+		for (String linha : this.codigoInicial) {
 			linha = linha.split("#")[0].trim(); // tudo que vem antes do coment�rio, ignorando o resto
 			
 			if(linha.contains(":"))
@@ -37,7 +30,7 @@ public class Formatar {
 
 		this.trocarBranchsJumpsPorNumero();
 		// new MipsSimulator(this.codigoFormatado).setVisible(true);   
-		Files.write(this.arquivoFormatado, this.codigoFormatado);
+		return this.codigoFormatado;
 	}
 
 	// Se contem labels put(chave: nome da lavel, valor: numero da linha atual)
