@@ -36,9 +36,11 @@ public class MipsSimulator extends javax.swing.JFrame {
     public String $t7 = "0x00000000";
     public String $t8 = "0x00000000";
     public String $t9 = "0x00000000";
-
+    public String valor = ""; 
+    Converter converter;
 
     public MipsSimulator() {
+        this.converter = new Converter(this); // this -> Classe Mips inteira sendo passada como parâmetro
         initComponents();
     }
     
@@ -201,8 +203,13 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextAreaConsole = new javax.swing.JTextArea();
         jButton_reset = new javax.swing.JButton();
         jButton_run = new javax.swing.JButton();
-        jLabelPC = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabelPC = new javax.swing.JLabel();
+        jTextEnderecoDeLeitura = new javax.swing.JTextField();
+        jTextEnderecoDeLeitura2 = new javax.swing.JTextField();
+        jTextRegistradorLeitura1 = new javax.swing.JTextField();
+        jTextDadosParaEscrita = new javax.swing.JTextField();
+        jTextRegistradorEscrita = new javax.swing.JTextField();
         jLabelImagem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -249,6 +256,8 @@ public class MipsSimulator extends javax.swing.JFrame {
                 jButton_clock_upAction(evt);
             }
         });
+
+        jTextLinhaLida.setFont(new java.awt.Font("Dank Mono", 2, 18)); // NOI18N
 
         jPanelRegistradores.setBackground(new java.awt.Color(231, 254, 254));
 
@@ -749,6 +758,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         );
 
         jTextAreaConsole.setColumns(20);
+        jTextAreaConsole.setFont(new java.awt.Font("Dank Mono", 2, 18)); // NOI18N
         jTextAreaConsole.setRows(5);
         jScrollPane1.setViewportView(jTextAreaConsole);
 
@@ -778,26 +788,44 @@ public class MipsSimulator extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelPC.setBackground(new java.awt.Color(51, 255, 204));
         jLabelPC.setFont(new java.awt.Font("Dank Mono", 1, 24)); // NOI18N
-        jLabelPC.setText("PC: ");
+        jLabelPC.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelPC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelPC.setText("0");
+        jLabelPC.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabelPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 40, 40));
+
+        jTextEnderecoDeLeitura.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextEnderecoDeLeitura.setText("0x00000000");
+        jTextEnderecoDeLeitura.setEnabled(false);
+        jPanel1.add(jTextEnderecoDeLeitura, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 100, 40));
+
+        jTextEnderecoDeLeitura2.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextEnderecoDeLeitura2.setText("0x00000000");
+        jTextEnderecoDeLeitura2.setEnabled(false);
+        jPanel1.add(jTextEnderecoDeLeitura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 97, 32));
+
+        jTextRegistradorLeitura1.setBackground(new java.awt.Color(0, 0, 0));
+        jTextRegistradorLeitura1.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextRegistradorLeitura1.setText("0x00000000");
+        jTextRegistradorLeitura1.setEnabled(false);
+        jPanel1.add(jTextRegistradorLeitura1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 97, 32));
+
+        jTextDadosParaEscrita.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextDadosParaEscrita.setText("0x00000000");
+        jTextDadosParaEscrita.setEnabled(false);
+        jPanel1.add(jTextDadosParaEscrita, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 560, -1, 30));
+
+        jTextRegistradorEscrita.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextRegistradorEscrita.setText("0x00000000");
+        jTextRegistradorEscrita.setEnabled(false);
+        jPanel1.add(jTextRegistradorEscrita, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, 97, 32));
 
         jLabelImagem.setIcon(new javax.swing.ImageIcon("D:\\CEFET\\Organizacao_Computadores\\projetos\\simulador-mips\\images\\mips.png")); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelImagem)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 787, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
+        jPanel1.add(jLabelImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, 787));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -813,8 +841,6 @@ public class MipsSimulator extends javax.swing.JFrame {
                             .addComponent(jButton_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton_run, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelPC, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton_clock_down, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton_clock_up, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -824,7 +850,7 @@ public class MipsSimulator extends javax.swing.JFrame {
                         .addGap(683, 683, 683)
                         .addComponent(jPanelInterfaceRegis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelRegistradores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -841,19 +867,13 @@ public class MipsSimulator extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jTextLinhaLida, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton_clock_up, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_run, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton_clock_up, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton_run, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton_clock_down, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabelPC, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_clock_down, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanelInterfaceRegis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -874,9 +894,12 @@ public class MipsSimulator extends javax.swing.JFrame {
     private void jButton_clock_downAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_clock_downAction
         // TODO add your handling code here:
         jButton_clock_down.setEnabled(false);
-        jButton_clock_up.setEnabled(true);
+        if(PC > (codigoCompilado.size()-1)) 
+            jButton_clock_up.setEnabled(false);
+        else 
+            jButton_clock_up.setEnabled(true);
         PC++;
-        jLabelPC.setText("PC: " + PC);
+        jLabelPC.setText(""+PC);
     }//GEN-LAST:event_jButton_clock_downAction
 
     private void jButton_clock_upAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_clock_upAction
@@ -888,8 +911,9 @@ public class MipsSimulator extends javax.swing.JFrame {
             jButton_clock_up.setEnabled(false);
             return;
         }
-        jTextLinhaLida.setText(codigoCompilado.get(PC));
-        
+        String linha = codigoCompilado.get(PC);
+        jTextLinhaLida.setText(linha);
+        this.converter.lerLinha(linha);
     }//GEN-LAST:event_jButton_clock_upAction
 
     private void jTextNomeT9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeT9ActionPerformed
@@ -977,21 +1001,28 @@ public class MipsSimulator extends javax.swing.JFrame {
         codigoCompilado.clear();
         jButton_run.setEnabled(true);
         jTextLinhaLida.setText("");
-        jLabelPC.setText("PC: ");
+        jLabelPC.setText("0");
         PC = 0;
         habilitaRegisters();
+        jButton_clock_up.setEnabled(false);
+        jButton_clock_down.setEnabled(false);
+        jTextAreaConsole.setEnabled(true);
     }//GEN-LAST:event_jButton_resetAction
 
     private void jButton_runAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_runAction
         // TODO add your handling code here:
+        jTextAreaConsole.setEnabled(false);
         for(String linha : this.jTextAreaConsole.getText().split("\n")) {
             codigoCompilado.add(linha);
             console += linha+"\n";
         }
-        if(PC > codigoCompilado.size()-1) 
+        codigoCompilado = new Formatar(codigoCompilado).formatarCodigo(); 
+        System.out.println("Formatadim: " + codigoCompilado);
+        System.out.println("Não formatado: " + console);
+        if(PC > (codigoCompilado.size()-1))
             jButton_clock_up.setEnabled(false);
         else 
-            jButton_clock_up.setEnabled(false);
+            jButton_clock_up.setEnabled(true);
         System.out.println("Código compilado:\n" + codigoCompilado + "tamanho: " + (codigoCompilado.size()-1));
         jButton_run.setEnabled(false);
         desabilitaRegisters();
@@ -1027,11 +1058,10 @@ public class MipsSimulator extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MipsSimulator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                 new MipsSimulator().setVisible(true);
+                new MipsSimulator().setVisible(true);
             }
         });
     }
@@ -1095,6 +1125,9 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelRegistradores;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaConsole;
+    private javax.swing.JTextField jTextDadosParaEscrita;
+    private javax.swing.JTextField jTextEnderecoDeLeitura;
+    private javax.swing.JTextField jTextEnderecoDeLeitura2;
     private javax.swing.JTextField jTextLinhaLida;
     private javax.swing.JTextField jTextNomeS0;
     private javax.swing.JTextField jTextNomeS1;
@@ -1115,6 +1148,8 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JTextField jTextNomeT8;
     private javax.swing.JTextField jTextNomeT9;
     private javax.swing.JTextField jTextNomeZero;
+    private javax.swing.JTextField jTextRegistradorEscrita;
+    private javax.swing.JTextField jTextRegistradorLeitura1;
     private javax.swing.JTextField jTextS0;
     private javax.swing.JTextField jTextS1;
     private javax.swing.JTextField jTextS2;
