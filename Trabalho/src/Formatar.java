@@ -8,7 +8,7 @@ public class Formatar {
 	private int contador = 0;
 	private List<String> codigo = new ArrayList<>();
 	private List<String> codigoFormatado = new ArrayList<>();
-	private Map<String, Integer> labels = new HashMap<>(); // label => Posi��o
+	private Map<String, Integer> labels = new HashMap<>(); // label => Posição
 	private Map<Integer, String> branchs = new HashMap<>(); // numeroLinha => string linha
 	private Map<Integer, String> jumps = new HashMap<>(); // numeroLinha => string linha
 
@@ -18,7 +18,7 @@ public class Formatar {
 
 	public List<String> formatarCodigo ()  {
 		for (String linha : this.codigoInicial) {
-			linha = linha.split("#")[0].trim(); // tudo que vem antes do coment�rio, ignorando o resto
+			linha = linha.split("#")[0].trim(); // tudo que vem antes do comentário, ignorando o resto
 			
 			if(linha.contains(":"))
 				linha = this.pegaLabelRemoveLinha(linha);
@@ -48,7 +48,7 @@ public class Formatar {
 		}
 	}
 
-	// O this.contador j� pulou a linha, agr sim, verifico se era branch (sempre uma instru��o a� frente)
+	// O this.contador j� pulou a linha, agr sim, verifico se era branch (sempre uma instrução a� frente)
 	// Se contem branchs put(chave: nome da label de destino, valor: numero linha atual)
 	private void verificarBranch (String linha) {
 		if(linha.contains("beq") || linha.contains("bne"))
@@ -80,7 +80,4 @@ public class Formatar {
 			this.contador++;
 		}
 	}
-
-
-
 }

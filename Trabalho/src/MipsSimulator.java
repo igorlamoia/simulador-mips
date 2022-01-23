@@ -36,9 +36,11 @@ public class MipsSimulator extends javax.swing.JFrame {
     public String $t7 = "0x00000000";
     public String $t8 = "0x00000000";
     public String $t9 = "0x00000000";
-
+    public String valor = ""; 
+    Converter converter;
 
     public MipsSimulator() {
+        this.converter = new Converter(this); // this -> Classe Mips inteira sendo passada como parâmetro
         initComponents();
     }
     
@@ -203,6 +205,11 @@ public class MipsSimulator extends javax.swing.JFrame {
         jButton_run = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabelPC = new javax.swing.JLabel();
+        jTextEnderecoDeLeitura = new javax.swing.JTextField();
+        jTextEnderecoDeLeitura2 = new javax.swing.JTextField();
+        jTextRegistradorLeitura1 = new javax.swing.JTextField();
+        jTextDadosParaEscrita = new javax.swing.JTextField();
+        jTextRegistradorEscrita = new javax.swing.JTextField();
         jLabelImagem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -249,6 +256,8 @@ public class MipsSimulator extends javax.swing.JFrame {
                 jButton_clock_upAction(evt);
             }
         });
+
+        jTextLinhaLida.setFont(new java.awt.Font("Dank Mono", 2, 18)); // NOI18N
 
         jPanelRegistradores.setBackground(new java.awt.Color(231, 254, 254));
 
@@ -789,6 +798,32 @@ public class MipsSimulator extends javax.swing.JFrame {
         jLabelPC.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabelPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 40, 40));
 
+        jTextEnderecoDeLeitura.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextEnderecoDeLeitura.setText("0x00000000");
+        jTextEnderecoDeLeitura.setEnabled(false);
+        jPanel1.add(jTextEnderecoDeLeitura, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 100, 40));
+
+        jTextEnderecoDeLeitura2.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextEnderecoDeLeitura2.setText("0x00000000");
+        jTextEnderecoDeLeitura2.setEnabled(false);
+        jPanel1.add(jTextEnderecoDeLeitura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 97, 32));
+
+        jTextRegistradorLeitura1.setBackground(new java.awt.Color(0, 0, 0));
+        jTextRegistradorLeitura1.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextRegistradorLeitura1.setText("0x00000000");
+        jTextRegistradorLeitura1.setEnabled(false);
+        jPanel1.add(jTextRegistradorLeitura1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 97, 32));
+
+        jTextDadosParaEscrita.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextDadosParaEscrita.setText("0x00000000");
+        jTextDadosParaEscrita.setEnabled(false);
+        jPanel1.add(jTextDadosParaEscrita, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 560, -1, 30));
+
+        jTextRegistradorEscrita.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextRegistradorEscrita.setText("0x00000000");
+        jTextRegistradorEscrita.setEnabled(false);
+        jPanel1.add(jTextRegistradorEscrita, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, 97, 32));
+
         jLabelImagem.setIcon(new javax.swing.ImageIcon("D:\\CEFET\\Organizacao_Computadores\\projetos\\simulador-mips\\images\\mips.png")); // NOI18N
         jPanel1.add(jLabelImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, 787));
 
@@ -876,8 +911,9 @@ public class MipsSimulator extends javax.swing.JFrame {
             jButton_clock_up.setEnabled(false);
             return;
         }
-        jTextLinhaLida.setText(codigoCompilado.get(PC));
-        
+        String linha = codigoCompilado.get(PC);
+        jTextLinhaLida.setText(linha);
+        this.converter.lerLinha(linha);
     }//GEN-LAST:event_jButton_clock_upAction
 
     private void jTextNomeT9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeT9ActionPerformed
@@ -983,7 +1019,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         codigoCompilado = new Formatar(codigoCompilado).formatarCodigo(); 
         System.out.println("Formatadim: " + codigoCompilado);
         System.out.println("Não formatado: " + console);
-        if(PC > (codigoCompilado.size()-1)) 
+        if(PC > (codigoCompilado.size()-1))
             jButton_clock_up.setEnabled(false);
         else 
             jButton_clock_up.setEnabled(true);
@@ -1022,11 +1058,10 @@ public class MipsSimulator extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MipsSimulator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                 new MipsSimulator().setVisible(true);
+                new MipsSimulator().setVisible(true);
             }
         });
     }
@@ -1090,6 +1125,9 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelRegistradores;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaConsole;
+    private javax.swing.JTextField jTextDadosParaEscrita;
+    private javax.swing.JTextField jTextEnderecoDeLeitura;
+    private javax.swing.JTextField jTextEnderecoDeLeitura2;
     private javax.swing.JTextField jTextLinhaLida;
     private javax.swing.JTextField jTextNomeS0;
     private javax.swing.JTextField jTextNomeS1;
@@ -1110,6 +1148,8 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JTextField jTextNomeT8;
     private javax.swing.JTextField jTextNomeT9;
     private javax.swing.JTextField jTextNomeZero;
+    private javax.swing.JTextField jTextRegistradorEscrita;
+    private javax.swing.JTextField jTextRegistradorLeitura1;
     private javax.swing.JTextField jTextS0;
     private javax.swing.JTextField jTextS1;
     private javax.swing.JTextField jTextS2;
