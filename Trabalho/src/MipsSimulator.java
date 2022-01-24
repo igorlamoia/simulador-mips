@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -49,74 +50,92 @@ public class MipsSimulator extends javax.swing.JFrame {
             case "$s0":
                 this.jTextS0.setText(valor);
                 this.$s0 = valor;
+                this.jTextS0.setBackground(Color.green);
                 break;
             case "$s1":
                 this.jTextS1.setText(valor);
                 this.$s1 = valor;
+                this.jTextS1.setBackground(Color.green);
                 break;
             case "$s2":
                 this.jTextS2.setText(valor);
                 this.$s2 = valor;
+                this.jTextS2.setBackground(Color.green);
                 break;
             case "$s3":
                 this.jTextS3.setText(valor);
                 this.$s3 = valor;
+                this.jTextS3.setBackground(Color.green);
                 break;
             case "$s4":
                 this.jTextS4.setText(valor);
                 this.$s4 = valor;
+                this.jTextS4.setBackground(Color.green);
                 break;
             case "$s5":
                 this.jTextS5.setText(valor);
                 this.$s5 = valor;
+                this.jTextS5.setBackground(Color.green);
                 break;
             case "$s6":
                 this.jTextS6.setText(valor);
                 this.$s6 = valor;
+                this.jTextS6.setBackground(Color.green);
                 break;
             case "$s7":
                 this.jTextS7.setText(valor);
                 this.$s7 = valor;
+                this.jTextS7.setBackground(Color.green);
                 break;
             case "$t0":
                 this.jTextT0.setText(valor);
                 this.$t0 = valor;
+                this.jTextT0.setBackground(Color.green);
                 break;
             case "$t1":
                 this.jTextT1.setText(valor);
                 this.$t1 = valor;
+                this.jTextT1.setBackground(Color.green);
                 break;
             case "$t2":
                 this.jTextT2.setText(valor);
                 this.$t2 = valor;
+                this.jTextT2.setBackground(Color.green);
                 break;
             case "$t3":
                 this.jTextT3.setText(valor);
                 this.$t3 = valor;
+                this.jTextT3.setBackground(Color.green);
                 break;
             case "$t4":
                 this.jTextT4.setText(valor);
                 this.$t4 = valor;
+                this.jTextT4.setBackground(Color.green);
                 break;
             case "$t5":
                 this.jTextT5.setText(valor);
                 this.$t5 = valor;
+                this.jTextT5.setBackground(Color.green);
                 break;
             case "$t6":
                 this.jTextT6.setText(valor);
                 this.$t6 = valor;
+                this.jTextT6.setBackground(Color.green);
                 break;
             case "$t7":
                 this.jTextT7.setText(valor);
                 this.$t7 = valor;
+                this.jTextT7.setBackground(Color.green);
                 break;
             case "$t8":
                 this.jTextT8.setText(valor);
                 this.$t8 = valor;
+                this.jTextT8.setBackground(Color.green);
                 break;
             case "$t9":
                 this.jTextT9.setText(valor);
                 this.$t9 = valor;
+                this.jTextT9.setBackground(Color.green);
                 break;
             default:
                 break;
@@ -917,8 +936,12 @@ public class MipsSimulator extends javax.swing.JFrame {
             jButton_clock_up.setEnabled(false);
         else 
             jButton_clock_up.setEnabled(true);
+        // Impedindo erro
+        if(this.PC <= codigoCompilado.size()-1)
+            this.converter.escreverLinha(codigoCompilado.get(PC));
         PC++;
         jLabelPC.setText(""+PC);
+        
     }//GEN-LAST:event_jButton_clock_downAction
 
     private void jButton_clock_upAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_clock_upAction
@@ -930,9 +953,9 @@ public class MipsSimulator extends javax.swing.JFrame {
             jButton_clock_up.setEnabled(false);
             return;
         }
-        String linha = codigoCompilado.get(PC);
-        jTextLinhaLida.setText(linha);
-        this.converter.lerLinha(linha);
+        jTextLinhaLida.setText(codigoCompilado.get(PC));
+        this.resetarCoresRegisters();
+        
     }//GEN-LAST:event_jButton_clock_upAction
 
     private void jTextNomeT9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeT9ActionPerformed
@@ -1033,22 +1056,15 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextAreaConsole.setEnabled(false);
         for(String linha : this.jTextAreaConsole.getText().split("\n")) {
             codigoCompilado.add(linha);
-            console += linha+"\n";
         }
-        codigoCompilado = new Formatar(codigoCompilado).formatarCodigo(); 
-        System.out.println("Formatadim: " + codigoCompilado);
-        System.out.println("Não formatado: " + console);
+        codigoCompilado = new Formatar(codigoCompilado).formatarCodigo();
+
         if(PC > (codigoCompilado.size()-1))
             jButton_clock_up.setEnabled(false);
         else 
             jButton_clock_up.setEnabled(true);
-        System.out.println("Código compilado:\n" + codigoCompilado + "tamanho: " + (codigoCompilado.size()-1));
         jButton_run.setEnabled(false);
         desabilitaRegisters();
-    
-        // for(String i : console.split("\n")) {
-            // System.out.println(i);
-        // }
     }//GEN-LAST:event_jButton_runAction
 
     /**
@@ -1083,6 +1099,27 @@ public class MipsSimulator extends javax.swing.JFrame {
                 new MipsSimulator().setVisible(true);
             }
         });
+    }
+    public void resetarCoresRegisters() {
+        this.jTextZero.setBackground(Color.LIGHT_GRAY);
+        this.jTextS0.setBackground(Color.LIGHT_GRAY);
+        this.jTextS1.setBackground(Color.LIGHT_GRAY);
+        this.jTextS2.setBackground(Color.LIGHT_GRAY);
+        this.jTextS3.setBackground(Color.LIGHT_GRAY);
+        this.jTextS4.setBackground(Color.LIGHT_GRAY);
+        this.jTextS5.setBackground(Color.LIGHT_GRAY);
+        this.jTextS6.setBackground(Color.LIGHT_GRAY);
+        this.jTextS7.setBackground(Color.LIGHT_GRAY);
+        this.jTextT0.setBackground(Color.LIGHT_GRAY);
+        this.jTextT1.setBackground(Color.LIGHT_GRAY);
+        this.jTextT2.setBackground(Color.LIGHT_GRAY);
+        this.jTextT3.setBackground(Color.LIGHT_GRAY);
+        this.jTextT4.setBackground(Color.LIGHT_GRAY);
+        this.jTextT5.setBackground(Color.LIGHT_GRAY);
+        this.jTextT6.setBackground(Color.LIGHT_GRAY);
+        this.jTextT7.setBackground(Color.LIGHT_GRAY);
+        this.jTextT8.setBackground(Color.LIGHT_GRAY);
+        this.jTextT9.setBackground(Color.LIGHT_GRAY);
     }
 
     public void desabilitaRegisters() {
