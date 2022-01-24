@@ -15,28 +15,29 @@ public class MipsSimulator extends javax.swing.JFrame {
      * Creates new form MipsSimulator
      */
 //    private List<String> Linhas = new ArrayList<>();
+    final String VALOR_PADRAO = "0x00000000";
     public String console = "";
     public List<String> codigoCompilado = new ArrayList<>();
     public Integer PC = 0;
-    public String $zero = "0x00000000";
-    public String $s0 = "0x00000000";
-    public String $s1 = "0x00000000";
-    public String $s2 = "0x00000000";
-    public String $s3 = "0x00000000";
-    public String $s4 = "0x00000000";
-    public String $s5 = "0x00000000";
-    public String $s6 = "0x00000000";
-    public String $s7 = "0x00000000";
-    public String $t0 = "0x00000000";
-    public String $t1 = "0x00000000";
-    public String $t2 = "0x00000000";
-    public String $t3 = "0x00000000";
-    public String $t4 = "0x00000000";
-    public String $t5 = "0x00000000";
-    public String $t6 = "0x00000000";
-    public String $t7 = "0x00000000";
-    public String $t8 = "0x00000000";
-    public String $t9 = "0x00000000";
+    public String $zero = this.VALOR_PADRAO;
+    public String $s0 = this.VALOR_PADRAO;
+    public String $s1 = this.VALOR_PADRAO;
+    public String $s2 = this.VALOR_PADRAO;
+    public String $s3 = this.VALOR_PADRAO;
+    public String $s4 = this.VALOR_PADRAO;
+    public String $s5 = this.VALOR_PADRAO;
+    public String $s6 = this.VALOR_PADRAO;
+    public String $s7 = this.VALOR_PADRAO;
+    public String $t0 = this.VALOR_PADRAO;
+    public String $t1 = this.VALOR_PADRAO;
+    public String $t2 = this.VALOR_PADRAO;
+    public String $t3 = this.VALOR_PADRAO;
+    public String $t4 = this.VALOR_PADRAO;
+    public String $t5 = this.VALOR_PADRAO;
+    public String $t6 = this.VALOR_PADRAO;
+    public String $t7 = this.VALOR_PADRAO;
+    public String $t8 = this.VALOR_PADRAO;
+    public String $t9 = this.VALOR_PADRAO;
     public String valor = ""; 
     Converter converter;
 
@@ -895,6 +896,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextZero.setToolTipText("");
         jTextZero.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(101, 251, 210), new java.awt.Color(203, 232, 233), new java.awt.Color(203, 232, 233), new java.awt.Color(203, 232, 233)));
         jTextZero.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextZero.setEnabled(false);
         jTextZero.setSelectionColor(new java.awt.Color(255, 255, 255));
         jPanelRegistradores.add(jTextZero, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 35, 93, -1));
 
@@ -1049,6 +1051,8 @@ public class MipsSimulator extends javax.swing.JFrame {
         jButton_clock_up.setEnabled(false);
         jButton_clock_down.setEnabled(false);
         jTextAreaConsole.setEnabled(true);
+        this.resetarCoresRegisters();
+        this.limparValorDosRegistradoresNaInterface();
     }//GEN-LAST:event_jButton_resetAction
 
     private void jButton_runAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_runAction
@@ -1065,6 +1069,11 @@ public class MipsSimulator extends javax.swing.JFrame {
             jButton_clock_up.setEnabled(true);
         jButton_run.setEnabled(false);
         desabilitaRegisters();
+        this.pegarValorDosRegistradoresNaInterface();
+        System.out.println("$s0" + this.$s0);
+        System.out.println("$s1" + this.$s1);
+        System.out.println("$t0" + this.$t0);
+        System.out.println("$t1" + this.$t1);
     }//GEN-LAST:event_jButton_runAction
 
     /**
@@ -1162,7 +1171,49 @@ public class MipsSimulator extends javax.swing.JFrame {
         this.jTextT7.setEnabled(true);
         this.jTextT8.setEnabled(true);
         this.jTextT9.setEnabled(true);
-        this.jTextZero.setEnabled(true);
+        // this.jTextZero.setEnabled(true);
+    }
+
+    public void pegarValorDosRegistradoresNaInterface () {
+        this.$s0 = this.jTextS0.getText();
+        this.$s1 = this.jTextS1.getText();
+        this.$s2 = this.jTextS2.getText();
+        this.$s3 = this.jTextS3.getText();
+        this.$s4 = this.jTextS4.getText();
+        this.$s5 = this.jTextS5.getText();
+        this.$s6 = this.jTextS6.getText();
+        this.$s7 = this.jTextS7.getText();
+        this.$t0 = this.jTextT0.getText();
+        this.$t1 = this.jTextT1.getText();
+        this.$t2 = this.jTextT2.getText();
+        this.$t3 = this.jTextT3.getText();
+        this.$t4 = this.jTextT4.getText();
+        this.$t5 = this.jTextT5.getText();
+        this.$t6 = this.jTextT6.getText();
+        this.$t7 = this.jTextT7.getText();
+        this.$t8 = this.jTextT8.getText();
+        this.$t9 = this.jTextT9.getText();
+    }
+    public void limparValorDosRegistradoresNaInterface () {
+        this.jTextS0.setText(this.VALOR_PADRAO);
+        this.jTextS1.setText(this.VALOR_PADRAO);
+        this.jTextS2.setText(this.VALOR_PADRAO);
+        this.jTextS3.setText(this.VALOR_PADRAO);
+        this.jTextS4.setText(this.VALOR_PADRAO);
+        this.jTextS5.setText(this.VALOR_PADRAO);
+        this.jTextS6.setText(this.VALOR_PADRAO);
+        this.jTextS7.setText(this.VALOR_PADRAO);
+        this.jTextT0.setText(this.VALOR_PADRAO);
+        this.jTextT1.setText(this.VALOR_PADRAO);
+        this.jTextT2.setText(this.VALOR_PADRAO);
+        this.jTextT3.setText(this.VALOR_PADRAO);
+        this.jTextT4.setText(this.VALOR_PADRAO);
+        this.jTextT5.setText(this.VALOR_PADRAO);
+        this.jTextT6.setText(this.VALOR_PADRAO);
+        this.jTextT7.setText(this.VALOR_PADRAO);
+        this.jTextT8.setText(this.VALOR_PADRAO);
+        this.jTextT9.setText(this.VALOR_PADRAO);
+        this.pegarValorDosRegistradoresNaInterface(); // Para limpar as variáveis também
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
