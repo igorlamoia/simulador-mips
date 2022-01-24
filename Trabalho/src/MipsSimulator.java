@@ -14,7 +14,6 @@ public class MipsSimulator extends javax.swing.JFrame {
     /**
      * Creates new form MipsSimulator
      */
-//    private List<String> Linhas = new ArrayList<>();
     final String VALOR_PADRAO = "0x00000000";
     public String console = "";
     public List<String> codigoCompilado = new ArrayList<>();
@@ -155,12 +154,39 @@ public class MipsSimulator extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabelPC = new javax.swing.JLabel();
+        jTextPC = new javax.swing.JTextField();
         jTextEnderecoDeLeitura = new javax.swing.JTextField();
         jTextRegistradorLeitura1 = new javax.swing.JTextField();
         jTextEnderecoDeLeitura2 = new javax.swing.JTextField();
         jTextRegistradorEscrita = new javax.swing.JTextField();
-        jTextDadosParaEscrita = new javax.swing.JTextField();
+        jTextDadosParaEscritaRegistradores = new javax.swing.JTextField();
+        jTextAdress1 = new javax.swing.JTextField();
+        jTextAdress2 = new javax.swing.JTextField();
+        jTextAdress3 = new javax.swing.JTextField();
+        jTextAdress4 = new javax.swing.JTextField();
+        jTextAdress5 = new javax.swing.JTextField();
+        jTextAdress6 = new javax.swing.JTextField();
+        jTextAdress7 = new javax.swing.JTextField();
+        jTextAdress8 = new javax.swing.JTextField();
+        jTextAdressValue1 = new javax.swing.JTextField();
+        jTextAdressValue2 = new javax.swing.JTextField();
+        jTextAdressValue3 = new javax.swing.JTextField();
+        jTextAdressValue4 = new javax.swing.JTextField();
+        jTextAdressValue5 = new javax.swing.JTextField();
+        jTextAdressValue6 = new javax.swing.JTextField();
+        jTextAdressValue7 = new javax.swing.JTextField();
+        jTextAdressValue8 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabelAdress = new javax.swing.JLabel();
+        jLabelAdressValue = new javax.swing.JLabel();
+        jTextControleValor = new javax.swing.JTextField();
+        jTextControleDescricao = new javax.swing.JTextField();
+        jTextAdd1 = new javax.swing.JTextField();
+        jTextAdd2 = new javax.swing.JTextField();
+        jTextALUDadosLeitura1 = new javax.swing.JTextField();
+        jTextALUDadosLeitura2 = new javax.swing.JTextField();
+        jTextSaidaALU = new javax.swing.JTextField();
+        jTextDadosEscrita_MemoriaDeDados = new javax.swing.JTextField();
         jLabelImagem = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaConsole = new javax.swing.JTextArea();
@@ -245,7 +271,17 @@ public class MipsSimulator extends javax.swing.JFrame {
         jLabelPC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPC.setText("0");
         jLabelPC.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel2.add(jLabelPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 40, 40));
+        jPanel2.add(jLabelPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, 40, 40));
+
+        jTextPC.setBackground(new java.awt.Color(255, 255, 255));
+        jTextPC.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextPC.setForeground(new java.awt.Color(204, 204, 204));
+        jTextPC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextPC.setText("0x00000000");
+        jTextPC.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextPC.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextPC.setEnabled(false);
+        jPanel2.add(jTextPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 540, 100, 30));
 
         jTextEnderecoDeLeitura.setBackground(new java.awt.Color(255, 255, 255));
         jTextEnderecoDeLeitura.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -265,7 +301,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextRegistradorLeitura1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
         jTextRegistradorLeitura1.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextRegistradorLeitura1.setEnabled(false);
-        jPanel2.add(jTextRegistradorLeitura1, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 450, 100, 40));
+        jPanel2.add(jTextRegistradorLeitura1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 450, 100, 40));
 
         jTextEnderecoDeLeitura2.setBackground(new java.awt.Color(255, 255, 255));
         jTextEnderecoDeLeitura2.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -287,15 +323,176 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextRegistradorEscrita.setEnabled(false);
         jPanel2.add(jTextRegistradorEscrita, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 560, 100, 40));
 
-        jTextDadosParaEscrita.setBackground(new java.awt.Color(255, 255, 255));
-        jTextDadosParaEscrita.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        jTextDadosParaEscrita.setForeground(new java.awt.Color(204, 204, 204));
-        jTextDadosParaEscrita.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextDadosParaEscrita.setText("0x00000000");
-        jTextDadosParaEscrita.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
-        jTextDadosParaEscrita.setDisabledTextColor(new java.awt.Color(51, 51, 51));
-        jTextDadosParaEscrita.setEnabled(false);
-        jPanel2.add(jTextDadosParaEscrita, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 630, -1, 30));
+        jTextDadosParaEscritaRegistradores.setBackground(new java.awt.Color(255, 255, 255));
+        jTextDadosParaEscritaRegistradores.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextDadosParaEscritaRegistradores.setForeground(new java.awt.Color(204, 204, 204));
+        jTextDadosParaEscritaRegistradores.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextDadosParaEscritaRegistradores.setText("0x00000000");
+        jTextDadosParaEscritaRegistradores.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextDadosParaEscritaRegistradores.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextDadosParaEscritaRegistradores.setEnabled(false);
+        jPanel2.add(jTextDadosParaEscritaRegistradores, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 630, -1, 30));
+
+        jTextAdress1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdress1.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdress1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdress1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdress1.setText("0x00000000");
+        jTextAdress1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdress1.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdress1.setEnabled(false);
+        jPanel2.add(jTextAdress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 630, -1, 30));
+
+        jTextAdress2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdress2.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdress2.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdress2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdress2.setText("0x00000004");
+        jTextAdress2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdress2.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdress2.setEnabled(false);
+        jPanel2.add(jTextAdress2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 660, -1, 30));
+
+        jTextAdress3.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdress3.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdress3.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdress3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdress3.setText("0x00000008");
+        jTextAdress3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdress3.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdress3.setEnabled(false);
+        jPanel2.add(jTextAdress3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 690, -1, 30));
+
+        jTextAdress4.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdress4.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdress4.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdress4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdress4.setText("0x0000000C");
+        jTextAdress4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdress4.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdress4.setEnabled(false);
+        jPanel2.add(jTextAdress4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 720, -1, 30));
+
+        jTextAdress5.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdress5.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdress5.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdress5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdress5.setText("0x00000010");
+        jTextAdress5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdress5.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdress5.setEnabled(false);
+        jPanel2.add(jTextAdress5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 750, -1, 30));
+
+        jTextAdress6.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdress6.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdress6.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdress6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdress6.setText("0x00000014");
+        jTextAdress6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdress6.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdress6.setEnabled(false);
+        jPanel2.add(jTextAdress6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 780, -1, 30));
+
+        jTextAdress7.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdress7.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdress7.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdress7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdress7.setText("0x00000018");
+        jTextAdress7.setToolTipText("");
+        jTextAdress7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdress7.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdress7.setEnabled(false);
+        jPanel2.add(jTextAdress7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 810, -1, 30));
+
+        jTextAdress8.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdress8.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdress8.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdress8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdress8.setText("0x0000001C");
+        jTextAdress8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdress8.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdress8.setEnabled(false);
+        jPanel2.add(jTextAdress8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 840, -1, 30));
+
+        jTextAdressValue1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdressValue1.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdressValue1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdressValue1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdressValue1.setText("0x00000000");
+        jTextAdressValue1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdressValue1.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdressValue1.setEnabled(false);
+        jPanel2.add(jTextAdressValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 630, -1, 30));
+
+        jTextAdressValue2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdressValue2.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdressValue2.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdressValue2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdressValue2.setText("0x00000000");
+        jTextAdressValue2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdressValue2.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdressValue2.setEnabled(false);
+        jPanel2.add(jTextAdressValue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 660, -1, 30));
+
+        jTextAdressValue3.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdressValue3.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdressValue3.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdressValue3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdressValue3.setText("0x00000000");
+        jTextAdressValue3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdressValue3.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdressValue3.setEnabled(false);
+        jPanel2.add(jTextAdressValue3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 690, -1, 30));
+
+        jTextAdressValue4.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdressValue4.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdressValue4.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdressValue4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdressValue4.setText("0x00000000");
+        jTextAdressValue4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdressValue4.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdressValue4.setEnabled(false);
+        jPanel2.add(jTextAdressValue4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 720, -1, 30));
+
+        jTextAdressValue5.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdressValue5.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdressValue5.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdressValue5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdressValue5.setText("0x00000000");
+        jTextAdressValue5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdressValue5.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdressValue5.setEnabled(false);
+        jPanel2.add(jTextAdressValue5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 750, -1, 30));
+
+        jTextAdressValue6.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdressValue6.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdressValue6.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdressValue6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdressValue6.setText("0x00000000");
+        jTextAdressValue6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdressValue6.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdressValue6.setEnabled(false);
+        jPanel2.add(jTextAdressValue6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 780, -1, 30));
+
+        jTextAdressValue7.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdressValue7.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdressValue7.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdressValue7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdressValue7.setText("0x00000000");
+        jTextAdressValue7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdressValue7.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdressValue7.setEnabled(false);
+        jPanel2.add(jTextAdressValue7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 810, -1, 30));
+
+        jTextAdressValue8.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdressValue8.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdressValue8.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdressValue8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdressValue8.setText("0x00000000");
+        jTextAdressValue8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdressValue8.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdressValue8.setEnabled(false);
+        jPanel2.add(jTextAdressValue8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 840, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("DaddyTimeMono NF", 3, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -305,6 +502,100 @@ public class MipsSimulator extends javax.swing.JFrame {
         jLabel1.getAccessibleContext().setAccessibleName("jlabel_titulo");
         jLabel1.getAccessibleContext().setAccessibleDescription("Título do Simulador");
 
+        jLabelAdress.setBackground(new java.awt.Color(0, 153, 153));
+        jLabelAdress.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
+        jLabelAdress.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelAdress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelAdress.setText("Adress");
+        jLabelAdress.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(jLabelAdress, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 610, 80, -1));
+
+        jLabelAdressValue.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
+        jLabelAdressValue.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelAdressValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelAdressValue.setText("Value");
+        jLabelAdressValue.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(jLabelAdressValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 90, -1));
+
+        jTextControleValor.setBackground(new java.awt.Color(255, 255, 255));
+        jTextControleValor.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextControleValor.setForeground(new java.awt.Color(204, 204, 204));
+        jTextControleValor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextControleValor.setText("0x00000000");
+        jTextControleValor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextControleValor.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextControleValor.setEnabled(false);
+        jPanel2.add(jTextControleValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 240, 80, 20));
+
+        jTextControleDescricao.setBackground(new java.awt.Color(255, 255, 255));
+        jTextControleDescricao.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextControleDescricao.setForeground(new java.awt.Color(204, 204, 204));
+        jTextControleDescricao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextControleDescricao.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextControleDescricao.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextControleDescricao.setEnabled(false);
+        jPanel2.add(jTextControleDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 270, 90, 20));
+
+        jTextAdd1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdd1.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdd1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdd1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdd1.setText("0x00000000");
+        jTextAdd1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdd1.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdd1.setEnabled(false);
+        jPanel2.add(jTextAdd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, 90, 20));
+
+        jTextAdd2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAdd2.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextAdd2.setForeground(new java.awt.Color(204, 204, 204));
+        jTextAdd2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextAdd2.setText("0x00000000");
+        jTextAdd2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextAdd2.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextAdd2.setEnabled(false);
+        jPanel2.add(jTextAdd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 150, 90, 20));
+
+        jTextALUDadosLeitura1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextALUDadosLeitura1.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextALUDadosLeitura1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextALUDadosLeitura1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextALUDadosLeitura1.setText("0x00000000");
+        jTextALUDadosLeitura1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextALUDadosLeitura1.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextALUDadosLeitura1.setEnabled(false);
+        jPanel2.add(jTextALUDadosLeitura1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 440, 90, 30));
+
+        jTextALUDadosLeitura2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextALUDadosLeitura2.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextALUDadosLeitura2.setForeground(new java.awt.Color(204, 204, 204));
+        jTextALUDadosLeitura2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextALUDadosLeitura2.setText("0x00000000");
+        jTextALUDadosLeitura2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextALUDadosLeitura2.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextALUDadosLeitura2.setEnabled(false);
+        jPanel2.add(jTextALUDadosLeitura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 630, 90, 30));
+
+        jTextSaidaALU.setBackground(new java.awt.Color(255, 255, 255));
+        jTextSaidaALU.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextSaidaALU.setForeground(new java.awt.Color(204, 204, 204));
+        jTextSaidaALU.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextSaidaALU.setText("0x00000000");
+        jTextSaidaALU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextSaidaALU.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextSaidaALU.setEnabled(false);
+        jPanel2.add(jTextSaidaALU, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 530, -1, 40));
+
+        jTextDadosEscrita_MemoriaDeDados.setBackground(new java.awt.Color(255, 255, 255));
+        jTextDadosEscrita_MemoriaDeDados.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextDadosEscrita_MemoriaDeDados.setForeground(new java.awt.Color(204, 204, 204));
+        jTextDadosEscrita_MemoriaDeDados.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextDadosEscrita_MemoriaDeDados.setText("0x00000000");
+        jTextDadosEscrita_MemoriaDeDados.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextDadosEscrita_MemoriaDeDados.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextDadosEscrita_MemoriaDeDados.setEnabled(false);
+        jPanel2.add(jTextDadosEscrita_MemoriaDeDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 650, -1, 40));
+
         jLabelImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mips.png"))); // NOI18N
         jPanel2.add(jLabelImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, -60, 1180, 1000));
 
@@ -313,10 +604,10 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextAreaConsole.setRows(5);
         jScrollPane1.setViewportView(jTextAreaConsole);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 450, 219));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 450, 330));
 
         jTextLinhaLida.setFont(new java.awt.Font("Dank Mono", 2, 18)); // NOI18N
-        jPanel2.add(jTextLinhaLida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 450, 37));
+        jPanel2.add(jTextLinhaLida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 450, 37));
         jTextLinhaLida.getAccessibleContext().setAccessibleName("Linha lida do comando");
 
         jButton_clock_up.setFont(new java.awt.Font("JetBrains Mono", 1, 11)); // NOI18N
@@ -332,7 +623,7 @@ public class MipsSimulator extends javax.swing.JFrame {
                 jButton_clock_upAction(evt);
             }
         });
-        jPanel2.add(jButton_clock_up, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 132, 42));
+        jPanel2.add(jButton_clock_up, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 450, 132, 42));
 
         jButton_clock_down.setFont(new java.awt.Font("JetBrains Mono", 1, 11)); // NOI18N
         jButton_clock_down.setText("Descer Clock ");
@@ -347,7 +638,7 @@ public class MipsSimulator extends javax.swing.JFrame {
                 jButton_clock_downAction(evt);
             }
         });
-        jPanel2.add(jButton_clock_down, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 132, 42));
+        jPanel2.add(jButton_clock_down, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 500, 132, 42));
         jButton_clock_down.getAccessibleContext().setAccessibleName("jButton_clock_down");
         jButton_clock_down.getAccessibleContext().setAccessibleDescription("Botão para descer clock  (escrever)");
 
@@ -363,7 +654,7 @@ public class MipsSimulator extends javax.swing.JFrame {
                 jButton_runAction(evt);
             }
         });
-        jPanel2.add(jButton_run, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 132, 42));
+        jPanel2.add(jButton_run, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 132, 42));
         jButton_run.getAccessibleContext().setAccessibleName("Botão rodar");
         jButton_run.getAccessibleContext().setAccessibleDescription("Botão de compilar código");
 
@@ -379,7 +670,7 @@ public class MipsSimulator extends javax.swing.JFrame {
                 jButton_resetAction(evt);
             }
         });
-        jPanel2.add(jButton_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 132, 42));
+        jPanel2.add(jButton_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 132, 42));
         jButton_reset.getAccessibleContext().setAccessibleName("Limpar programa");
 
         jPanelRegistradores.setBackground(new java.awt.Color(231, 254, 254));
@@ -907,13 +1198,9 @@ public class MipsSimulator extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelRegistradores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -923,8 +1210,8 @@ public class MipsSimulator extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelRegistradores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1240, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 878, Short.MAX_VALUE)
+                    .addComponent(jPanelRegistradores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1222,6 +1509,8 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JButton jButton_reset;
     private javax.swing.JButton jButton_run;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelAdress;
+    private javax.swing.JLabel jLabelAdressValue;
     private javax.swing.JLabel jLabelImagem;
     private javax.swing.JLabel jLabelNomeRegistrador;
     private javax.swing.JLabel jLabelNumeroRegistrador;
@@ -1231,8 +1520,31 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelRegistradores;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextALUDadosLeitura1;
+    private javax.swing.JTextField jTextALUDadosLeitura2;
+    private javax.swing.JTextField jTextAdd1;
+    private javax.swing.JTextField jTextAdd2;
+    private javax.swing.JTextField jTextAdress1;
+    private javax.swing.JTextField jTextAdress2;
+    private javax.swing.JTextField jTextAdress3;
+    private javax.swing.JTextField jTextAdress4;
+    private javax.swing.JTextField jTextAdress5;
+    private javax.swing.JTextField jTextAdress6;
+    private javax.swing.JTextField jTextAdress7;
+    private javax.swing.JTextField jTextAdress8;
+    private javax.swing.JTextField jTextAdressValue1;
+    private javax.swing.JTextField jTextAdressValue2;
+    private javax.swing.JTextField jTextAdressValue3;
+    private javax.swing.JTextField jTextAdressValue4;
+    private javax.swing.JTextField jTextAdressValue5;
+    private javax.swing.JTextField jTextAdressValue6;
+    private javax.swing.JTextField jTextAdressValue7;
+    private javax.swing.JTextField jTextAdressValue8;
     private javax.swing.JTextArea jTextAreaConsole;
-    private javax.swing.JTextField jTextDadosParaEscrita;
+    private javax.swing.JTextField jTextControleDescricao;
+    private javax.swing.JTextField jTextControleValor;
+    private javax.swing.JTextField jTextDadosEscrita_MemoriaDeDados;
+    private javax.swing.JTextField jTextDadosParaEscritaRegistradores;
     private javax.swing.JTextField jTextEnderecoDeLeitura;
     private javax.swing.JTextField jTextEnderecoDeLeitura2;
     private javax.swing.JTextField jTextLinhaLida;
@@ -1255,6 +1567,7 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JTextField jTextNomeT8;
     private javax.swing.JTextField jTextNomeT9;
     private javax.swing.JTextField jTextNomeZero;
+    private javax.swing.JTextField jTextPC;
     private javax.swing.JTextField jTextRegistradorEscrita;
     private javax.swing.JTextField jTextRegistradorLeitura1;
     private javax.swing.JTextField jTextS0;
@@ -1265,6 +1578,7 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JTextField jTextS5;
     private javax.swing.JTextField jTextS6;
     private javax.swing.JTextField jTextS7;
+    private javax.swing.JTextField jTextSaidaALU;
     private javax.swing.JTextField jTextT0;
     private javax.swing.JTextField jTextT1;
     private javax.swing.JTextField jTextT2;
