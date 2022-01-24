@@ -39,9 +39,11 @@ public class MipsSimulator extends javax.swing.JFrame {
     public String $t9 = this.VALOR_PADRAO;
     public String valor = ""; 
     Converter converter;
-
+    Controle controle;
+    
     public MipsSimulator() {
         this.converter = new Converter(this); // this -> Classe Mips inteira sendo passada como parâmetro
+        this.controle = new Controle(this); // this -> Classe Mips inteira sendo passada como parâmetro
         initComponents();
     }
     
@@ -604,10 +606,10 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextAreaConsole.setRows(5);
         jScrollPane1.setViewportView(jTextAreaConsole);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 450, 330));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 440, 330));
 
         jTextLinhaLida.setFont(new java.awt.Font("Dank Mono", 2, 18)); // NOI18N
-        jPanel2.add(jTextLinhaLida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 450, 37));
+        jPanel2.add(jTextLinhaLida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 440, 37));
         jTextLinhaLida.getAccessibleContext().setAccessibleName("Linha lida do comando");
 
         jButton_clock_up.setFont(new java.awt.Font("JetBrains Mono", 1, 11)); // NOI18N
