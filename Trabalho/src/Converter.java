@@ -5,7 +5,7 @@ public class Converter {
     public Converter(MipsSimulator mips) {
         this.mips = mips;
     }
-    public void lerLinha (String linha) {
+    public void escreverLinha (String linha) {
         System.out.println("testaaaa"+mips.$s0);   // Pegando um valor
         mips.setRegistrador("$s0", "0xffffff");   // Setando valor para classe e para Interface
         System.out.println("testaaaa"+mips.$s0); // Pegando um valor após ser modificado
