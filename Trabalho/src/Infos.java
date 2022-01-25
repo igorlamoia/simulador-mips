@@ -2,6 +2,10 @@ import java.io.IOException;
 
 public class Infos {
 	
+	public static String instrucaoDaLinha (String linha) {
+		return linha.substring(0, linha.indexOf(" "));
+	} 
+
 	public static String infos(String linha) throws IOException {
 		
 		String aux = linha;
@@ -13,11 +17,11 @@ public class Infos {
 		String imm = "";
 		String instrucao = linha.substring(0, linha.indexOf(" "));
 		
-		//Cada instrução tem seu próprio padrão
-		//Dentro de cada if está sendo tratado cada particularidade de cada instrução como, por exemplo, o posicionamento dos Registradores e as conversões necessárias de acordo com a quantidade de bits
-		//Inicialmente, dentro do if será formado o número binário no formato de string da instrução referente a linha que está sendo trabalhada
-		//A conversão será feita e...
-		//Por fim, será retornado um número hexadecimal no formato de string referente a linha que está sendo trabalhada
+		//Cada instruï¿½ï¿½o tem seu prï¿½prio padrï¿½o
+		//Dentro de cada if estï¿½ sendo tratado cada particularidade de cada instruï¿½ï¿½o como, por exemplo, o posicionamento dos Registradores e as conversï¿½es necessï¿½rias de acordo com a quantidade de bits
+		//Inicialmente, dentro do if serï¿½ formado o nï¿½mero binï¿½rio no formato de string da instruï¿½ï¿½o referente a linha que estï¿½ sendo trabalhada
+		//A conversï¿½o serï¿½ feita e...
+		//Por fim, serï¿½ retornado um nï¿½mero hexadecimal no formato de string referente a linha que estï¿½ sendo trabalhada
 
 		if (instrucao.equals("or")) {
 			aux = aux.substring(aux.indexOf("$")+1);

@@ -40,6 +40,17 @@ public class MipsSimulator extends javax.swing.JFrame {
     public String valor = ""; 
     Converter converter;
     Controle controle;
+    public String regDST;
+    public String jump;
+    public String branch;
+    public String memRead;
+    public String memToReg;
+    public String aluOp;
+    public String memWrite;
+    public String aluSRC;
+    public String regWrite;
+    public String entradaDeControleALU = ""; // 4 bits 
+
     
     public MipsSimulator() {
         this.converter = new Converter(this); // this -> Classe Mips inteira sendo passada como parâmetro
