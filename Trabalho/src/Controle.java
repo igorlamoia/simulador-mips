@@ -2,11 +2,12 @@ public class Controle {
   
   MipsSimulator mips;
 
+
   public Controle (MipsSimulator mips) {
     this.mips = mips;
   }
 
-  public String escreverLinha(String linha) {
+  public String pegarInstrucao(String linha) {
     return controleInstrucao31_26("ssss", Infos.instrucaoDaLinha(linha));
   }
 
@@ -14,7 +15,7 @@ public class Controle {
 
   }
 
-  public String controleInstrucao31_26(String function, String instrucao) {
+  public String controleInstrucao31_26(String op, String instrucao) {
     String retorno = "";
     
     // TIPO R
@@ -29,7 +30,7 @@ public class Controle {
       this.mips.aluSRC = "0";
       this.mips.regWrite = "1";
       
-      switch (function) {
+      switch (op) {
         case "100000":
           this.mips.entradaDeControleALU = "0010"; // add
           break;
@@ -48,6 +49,10 @@ public class Controle {
         default:
           break;
       }
+
+      this.mips.setInterface("controleValor", Converter.bin6ParaHexa(op));
+      this.mips.setInterface("controleDescricao", "TIPO R");
+      
     }
     // TIPO
     if (instrucao.equals("lw")) {
@@ -60,6 +65,8 @@ public class Controle {
       this.mips.memWrite = "0";
       this.mips.aluSRC = "1";
       this.mips.regWrite = "1";
+      this.mips.setInterface("controleValor", Converter.bin6ParaHexa(op));
+      this.mips.setInterface("controleDescricao", "LW");
     } 
     if (instrucao.equals("sw")) {
       this.mips.regDST = "0";
@@ -71,6 +78,8 @@ public class Controle {
       this.mips.memWrite = "1";
       this.mips.aluSRC = "1";
       this.mips.regWrite = "0";
+      this.mips.setInterface("controleValor", Converter.bin6ParaHexa(op));
+      this.mips.setInterface("controleDescricao", "SW");
     } 
     if (instrucao.equals("beq")) {
       this.mips.regDST = "0";
@@ -82,64 +91,16 @@ public class Controle {
       this.mips.memWrite = "0";
       this.mips.aluSRC = "0";
       this.mips.regWrite = "0";
+      this.mips.setInterface("controleValor", Converter.bin6ParaHexa(op));
+      this.mips.setInterface("controleDescricao", "BRANCH");
     } 
-    if (instrucao.equals("jump")) {
+    if (instrucao.equals("j")) {
       this.mips.jump = "1";
+      this.mips.setInterface("controleValor", Converter.bin6ParaHexa(op));
+      this.mips.setInterface("controleDescricao", "JUMP");
     }
-      
-    
 
-    // if (function.equals("100000") && operacao.equals("0010")) {
-    //   return retorno;
-    //   // return "0010";
-    // }
-    // else if (function.equals("100010") && operacao.equals("0110")) {
-    //   // return "0110";
-    //   return retorno;
-    // }
-    // else if (function.equals("100100") && operacao.equals("0000")) {
-    //   // return "0000";
-    //   return retorno;
-    // }
-    // else if (function.equals("100101") && operacao.equals("0001")) {
-    //   // return "0001";
-    //   return retorno;
-    // }
-    // else if (function.equals("101010") && operacao.equals("0111")) {
-    //   // return "0111";
-    //   return retorno;
-    // }
-    // else if (op_alu1 == 0 && op_alu2 == 0 && operacao.equals("0010")) {
-    //   // return "0010";
-    //   return retorno;
-    // }
-    // else if (op_alu1 == 0 && op_alu2 == 1 && operacao.equals("0110")) {
-    //   // return "0110";
-    //   return retorno;
-    // } 
-    // else {
-    //   throw new Error("Errou!!");
-    // }
     // TODO Resolver sapoha
     return "au au";
   }
-
-  // private String paraOndeIr (String operacao) {
-  //   switch (operacao) {
-  //     case "0010":
-  //       break;
-  //     case "0110":
-  //       break;
-  //     case "0000":
-  //       break;
-  //     case "0001":
-  //       break;
-  //     case "0111":
-  //       break;
-  //     case "0010":
-  //       break;
-  //     case "0110":
-  //       break;
-  //   }
-  // }
 }

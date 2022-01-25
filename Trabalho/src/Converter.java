@@ -5,7 +5,7 @@ public class Converter {
     public Converter(MipsSimulator mips) {
         this.mips = mips;
     }
-    public void escreverLinha (String linha) {
+    public void pegarInstrucao (String linha) {
         System.out.println("testaaaa"+mips.$s0);   // Pegando um valor
         mips.setRegistrador("$s0", "0xffffff");   // Setando valor para classe e para Interface
         System.out.println("testaaaa"+mips.$s0); // Pegando um valor após ser modificado
@@ -14,6 +14,10 @@ public class Converter {
     
     //Recebe um número binário armazenado no formato de string
     //Retorna o número hexadecimal referente, também no formato de string
+
+    public static String bin6ParaHexa(String binario) {
+        return "0x"+Integer.toString(Integer.parseInt(binario, 2), 16); // !Ajustar tamanho 
+    }
 
     public static String binParaHexa(String binario) {
 

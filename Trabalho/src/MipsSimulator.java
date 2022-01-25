@@ -40,6 +40,8 @@ public class MipsSimulator extends javax.swing.JFrame {
     public String valor = ""; 
     Converter converter;
     Controle controle;
+    ALU alu;
+    MemoriaInstrucao memoriaInstrucao;
     public String regDST;
     public String jump;
     public String branch;
@@ -51,13 +53,55 @@ public class MipsSimulator extends javax.swing.JFrame {
     public String regWrite;
     public String entradaDeControleALU = ""; // 4 bits 
 
+
+    public String enderecoDeLeitura = "";
+    public String controleValor = "";
+    public String controleDescricao = "";
     
     public MipsSimulator() {
         this.converter = new Converter(this); // this -> Classe Mips inteira sendo passada como parâmetro
         this.controle = new Controle(this); // this -> Classe Mips inteira sendo passada como parâmetro
+        this.alu = new ALU(this); // this -> Classe Mips inteira sendo passada como parâmetro
+        this.memoriaInstrucao = new MemoriaInstrucao(this); // this -> Classe Mips inteira sendo passada como parâmetro
         initComponents();
+
+        this.jTextAreaConsole.setText(new String (
+            "or $s2, $s1, $s0 # comentário inútil\n"
+            +"and $s3, $s0, $s2\n"
+            + "# comentário inútil\n"
+            + "# comentário inútil\n"
+            + " \n"
+            +"sub $s4, $s2, $s3\n"
+            +"label_jump:\n"
+            +"add $s5, $s5, $s0\n"
+            +"slt $t0, $s1, $s5\n"
+            +"beq $t0, $zero, label_beq\n"
+            +"j label_jump\n"
+            +"label_beq:\n"
+            +"sw $s5, 0($zero)\n"
+            +"lw $t1, 0($zero)\n"
+        )
+        );
     }
     
+    public void setInterface(String campo, String valor) {
+        switch (campo) {
+            case "enderecoDeLeitura":
+                this.jTextEnderecoDeLeitura.setText(valor);
+                this.enderecoDeLeitura = valor;
+                this.jTextEnderecoDeLeitura.setBackground(Color.cyan);
+            break;
+            case "controleValor":
+                this.jTextControleValor.setText(valor);
+                this.enderecoDeLeitura = valor;
+                this.jTextControleValor.setBackground(Color.cyan);
+            break;
+            case "controleDescricao":
+                this.jTextControleDescricao.setText(valor);
+                this.enderecoDeLeitura = valor;
+            break;
+        }
+    }
     public void setRegistrador(String nomeReg, String valor) {
         switch (nomeReg) {
             case "$s0":
@@ -1240,7 +1284,7 @@ public class MipsSimulator extends javax.swing.JFrame {
             jButton_clock_up.setEnabled(true);
         // Impedindo erro
         if(this.PC <= codigoCompilado.size()-1)
-            this.converter.escreverLinha(codigoCompilado.get(PC));
+            this.memoriaInstrucao.lerLinha(codigoCompilado.get(PC));
         PC++;
         jLabelPC.setText(""+PC);
         

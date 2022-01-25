@@ -17,7 +17,7 @@ public class Montagem {
 		for (String linha : Files.readAllLines(arquivoInicial, StandardCharsets.UTF_8)) {
 			//Para cada linha, ap�s todo tratamento para transform�-la de c�digo MIPS --> Hexadecimal
 			//Atribuir a mesma no ArrayList 'codigo' 
-			codigo.add(Infos.infos(linha));
+			codigo.add(Infos.linhaParaBinario(linha));
 
 		}
 		
