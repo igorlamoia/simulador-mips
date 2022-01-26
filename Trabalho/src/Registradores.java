@@ -2,7 +2,6 @@ public class Registradores {
 	
 	public static String registradores(String reg) {
 		
-		//O intuito dessa classe é retornar, a partir de um registrador recebido por parâmetro, o 'NUMBER' do mesmo
 		
 		String padrao = "";
 		
