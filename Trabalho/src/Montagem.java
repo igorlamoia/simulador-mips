@@ -11,11 +11,13 @@ public class Montagem {
 		
 		List<String> codigo = new ArrayList<>();
 		
+		
+		
 		//Percorre todas as linhas do arquivo (cod_asm_formatado.txt)
 		for (String linha : Files.readAllLines(arquivoInicial, StandardCharsets.UTF_8)) {
-			//Para cada linha, após todo tratamento para transformá-la de código MIPS --> Hexadecimal
+			//Para cada linha, apï¿½s todo tratamento para transformï¿½-la de cï¿½digo MIPS --> Hexadecimal
 			//Atribuir a mesma no ArrayList 'codigo' 
-			codigo.add(Infos.infos(linha));
+			codigo.add(Infos.linhaParaBinario(linha));
 
 		}
 		
