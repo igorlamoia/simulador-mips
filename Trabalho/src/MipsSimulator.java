@@ -14,6 +14,7 @@ public class MipsSimulator extends javax.swing.JFrame {
     /**
      * Creates new form MipsSimulator
      */
+//    private List<String> Linhas = new ArrayList<>();
     final String VALOR_PADRAO = "0x00000000";
     public String console = "";
     public List<String> codigoCompilado = new ArrayList<>();
@@ -1487,7 +1488,7 @@ public class MipsSimulator extends javax.swing.JFrame {
             jButton_clock_up.setEnabled(true);
         // Impedindo erro
         if(this.PC <= codigoCompilado.size()-1)
-            this.memoriaInstrucao.lerLinha(codigoCompilado.get(PC));
+            this.converter.escreverLinha(codigoCompilado.get(PC));
         PC++;
         jLabelPC.setText(""+PC);
         
@@ -1656,6 +1657,27 @@ public class MipsSimulator extends javax.swing.JFrame {
                 new MipsSimulator().setVisible(true);
             }
         });
+    }
+    public void resetarCoresRegisters() {
+        this.jTextZero.setBackground(Color.LIGHT_GRAY);
+        this.jTextS0.setBackground(Color.LIGHT_GRAY);
+        this.jTextS1.setBackground(Color.LIGHT_GRAY);
+        this.jTextS2.setBackground(Color.LIGHT_GRAY);
+        this.jTextS3.setBackground(Color.LIGHT_GRAY);
+        this.jTextS4.setBackground(Color.LIGHT_GRAY);
+        this.jTextS5.setBackground(Color.LIGHT_GRAY);
+        this.jTextS6.setBackground(Color.LIGHT_GRAY);
+        this.jTextS7.setBackground(Color.LIGHT_GRAY);
+        this.jTextT0.setBackground(Color.LIGHT_GRAY);
+        this.jTextT1.setBackground(Color.LIGHT_GRAY);
+        this.jTextT2.setBackground(Color.LIGHT_GRAY);
+        this.jTextT3.setBackground(Color.LIGHT_GRAY);
+        this.jTextT4.setBackground(Color.LIGHT_GRAY);
+        this.jTextT5.setBackground(Color.LIGHT_GRAY);
+        this.jTextT6.setBackground(Color.LIGHT_GRAY);
+        this.jTextT7.setBackground(Color.LIGHT_GRAY);
+        this.jTextT8.setBackground(Color.LIGHT_GRAY);
+        this.jTextT9.setBackground(Color.LIGHT_GRAY);
     }
 
     public void limpaLinhaBlocos(){
