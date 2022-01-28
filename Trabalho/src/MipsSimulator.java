@@ -138,7 +138,15 @@ public class MipsSimulator extends javax.swing.JFrame {
             case "ime":
                 this.jTextIme.setText(valor);
                 this.jTextIme.setBackground(Color.cyan);
-            break;     
+                break;
+            case "dadosLeitura1":
+                this.jTextALUDadosLeitura1.setText(valor);    
+                this.jTextALUDadosLeitura1.setBackground(Color.cyan);
+                break;
+            case "dadosLeitura2":
+                this.jTextALUDadosLeitura2.setText(valor);    
+                this.jTextALUDadosLeitura2.setBackground(Color.cyan);
+                break;
         }
     }
 
@@ -445,7 +453,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextRd.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
         jTextRd.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextRd.setEnabled(false);
-        jPanel2.add(jTextRd, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 560, 100, 40));
+        jPanel2.add(jTextRd, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, 100, 40));
 
         jTextDadosParaEscrita.setBackground(new java.awt.Color(255, 255, 255));
         jTextDadosParaEscrita.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -1618,10 +1626,6 @@ public class MipsSimulator extends javax.swing.JFrame {
         jButton_run.setEnabled(false);
         desabilitaRegisters();
         this.pegarValorDosRegistradoresNaInterface();
-        System.out.println("$s0" + this.$s0);
-        System.out.println("$s1" + this.$s1);
-        System.out.println("$t0" + this.$t0);
-        System.out.println("$t1" + this.$t1);
     }//GEN-LAST:event_jButton_runAction
 
     /**

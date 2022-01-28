@@ -20,6 +20,11 @@ public class BlocoRegistrador {
        this.mips.setInterface("rt", this.rt);
        this.mips.setInterface("rd", this.rd);
        this.mips.setInterface("fn", this.fn);
+       String resultado = new ALU(this).alu(func);
+       String nomeReg = Registradores.numeroRegParaNome(this.rd);
+       this.mips.setRegistrador(nomeReg, resultado);
+       this.mips.setInterface("dadosLeitura1", this.rs);
+       this.mips.setInterface("dadosLeitura2", this.rt);
       }
     else if (func.equals("lw")) {
       this.mips.setInterface("rs", this.rs);

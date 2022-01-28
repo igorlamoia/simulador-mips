@@ -5,7 +5,6 @@ public class Infos {
 	} 
 
 	public static String linhaParaBinario(String linha) {
-		
 		String aux = linha;
 		String padraoBin = "";
 		String padraoHexa = "";

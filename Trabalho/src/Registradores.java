@@ -34,4 +34,38 @@ public class Registradores {
 
 	}
 
+	public static String numeroRegParaNome(String reg) {
+		
+		
+		String padrao = "";
+		
+		if (reg.equals("00000")) {
+			padrao = "$zero";
+		}else if (reg.equals("10000")) {
+			padrao = "$s0";
+		}else if (reg.equals("10001")) {
+			padrao = "$s1";
+		}else if (reg.equals("10010")) {
+			padrao = "$s2";
+		}else if (reg.equals("10011")) {
+			padrao = "$s3";
+		}else if (reg.equals("10100")) {
+			padrao = "$s4";
+		}else if (reg.equals("10101")) {
+			padrao = "$s5";
+		}else if (reg.equals("10110")) {
+			padrao = "$s6";
+		}else if (reg.equals("10111")) {
+			padrao = "$s7";
+		}else if (reg.equals("01000")) {
+			padrao = "$t0";
+		}else if (reg.equals("01001")) {
+			padrao = "$t1";
+		}else if (reg.equals("01010")) {
+			padrao = "$t2";
+		}
+		return padrao;
+
+	}
+
 }
