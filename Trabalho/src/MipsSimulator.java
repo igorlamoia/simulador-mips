@@ -89,8 +89,67 @@ public class MipsSimulator extends javax.swing.JFrame {
         // this.jTextLinhaOp.setVisible(false);
     }
     
+    public void setAddress (String campo, String valor) {
+        switch (campo) {
+            case "address1":
+                this.jTextAdressValue1.setText(Convercao.binToHex0x(valor));
+                break;
+            case "adress2":
+                this.jTextAdressValue2.setText(Convercao.binToHex0x(valor));
+                break;
+            case "address3":
+                this.jTextAdressValue3.setText(Convercao.binToHex0x(valor));
+                break;
+            case "address4":
+                this.jTextAdressValue4.setText(Convercao.binToHex0x(valor));
+                break;
+            case "address5":
+                this.jTextAdressValue5.setText(Convercao.binToHex0x(valor));
+                break;
+            case "address6":
+                this.jTextAdressValue6.setText(Convercao.binToHex0x(valor));
+                break;
+            case "address7":
+                this.jTextAdressValue7.setText(Convercao.binToHex0x(valor));
+                break;
+            case "address8":
+                this.jTextAdressValue8.setText(Convercao.binToHex0x(valor));
+                break;
+            default:
+                break;
+        }
+    }
+
+    public String getAddress (String campo) {
+        switch (campo) {
+            case "address1":
+                return this.jTextAdressValue1.getText();
+            case "adress2":
+                return this.jTextAdressValue2.getText();
+            case "address3":
+                return this.jTextAdressValue3.getText();
+            case "address4":
+                return this.jTextAdressValue4.getText();
+            case "address5":
+                return this.jTextAdressValue5.getText();
+            case "address6":
+                return this.jTextAdressValue6.getText();
+            case "address7":
+                return this.jTextAdressValue7.getText();
+            case "address8":
+                return this.jTextAdressValue8.getText();
+            default:
+                System.out.println("Não existe essa posição");
+                return VALOR_PADRAO;
+        }
+    }
+
     public void setInterface(String campo, String valor) {
         switch (campo) {
+            case "escritaMemoriaDados":
+                this.jTextDadosEscrita_MemoriaDeDados.setText(Convercao.binToHex0x(valor));
+                this.jTextDadosEscrita_MemoriaDeDados.setBackground(Color.cyan);
+            break;
             case "ALUZero":
                 this.jTextALUZero.setText(valor); // 0 ou 1
                 this.jTextALUZero.setBackground(Color.cyan);
@@ -282,7 +341,7 @@ public class MipsSimulator extends javax.swing.JFrame {
                 break;
         }
     } 
-
+    
     public String getRegistrador(String nomeReg) {
         switch (nomeReg) {
             case "$zero":
@@ -641,7 +700,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextSaidaALU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
         jTextSaidaALU.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextSaidaALU.setEnabled(false);
-        jPanel2.add(jTextSaidaALU, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 530, -1, 40));
+        jPanel2.add(jTextSaidaALU, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 540, 90, 40));
 
         jTextDadosEscrita_MemoriaDeDados.setBackground(new java.awt.Color(255, 255, 255));
         jTextDadosEscrita_MemoriaDeDados.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -800,7 +859,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jLabelAdress.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
         jLabelAdress.setForeground(new java.awt.Color(0, 153, 153));
         jLabelAdress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelAdress.setText("Adress");
+        jLabelAdress.setText("Address");
         jLabelAdress.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jTextAdress1.setBackground(new java.awt.Color(255, 255, 255));
@@ -834,7 +893,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextAdress4.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         jTextAdress4.setForeground(new java.awt.Color(204, 204, 204));
         jTextAdress4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextAdress4.setText("0x0000000C");
+        jTextAdress4.setText("0x0000000c");
         jTextAdress4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(0, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
         jTextAdress4.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextAdress4.setEnabled(false);
@@ -871,7 +930,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextAdress8.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         jTextAdress8.setForeground(new java.awt.Color(204, 204, 204));
         jTextAdress8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextAdress8.setText("0x0000001C");
+        jTextAdress8.setText("0x0000001c");
         jTextAdress8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(0, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
         jTextAdress8.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextAdress8.setEnabled(false);

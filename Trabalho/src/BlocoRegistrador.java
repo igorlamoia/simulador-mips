@@ -1,3 +1,5 @@
+import helpers.Convercao;
+
 public class BlocoRegistrador {
   
   MipsSimulator mips;
@@ -41,6 +43,10 @@ public class BlocoRegistrador {
       this.mips.setInterface("rs", this.rs);
       this.mips.setInterface("rt", this.rt);
       this.mips.setInterface("ime", this.ime);
+      String resultado = new ALU(this).alu(func);
+      this.mips.setInterface("saidaALU", resultado);
+      this.mips.setInterface("escritaMemoriaDados", this.rt);
+      this.mips.setAddress(Registradores.enderecoMemoriaParaNomeMemoria(Convercao.binToHex0x(resultado)), this.rt);
     } 
     else if (func.equals("beq")) {
       this.mips.setInterface("rs", this.rs);

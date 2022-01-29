@@ -1,3 +1,5 @@
+import helpers.Convercao;
+
 public class ALU {
   
   MipsSimulator mips;
@@ -67,9 +69,11 @@ public class ALU {
       // this.bloco.setInterface("ime", this.bloco.ime);
     }
     else if (func.equals("sw")) {
-      // this.bloco.setInterface("rs", this.bloco.rs);
       // this.bloco.setInterface("rt", this.bloco.rt);
       // this.bloco.setInterface("ime", this.bloco.ime);
+      // this.bloco.setInterface("rs", this.bloco.rs);
+      // this.bloco.ime = Convercao.signExtend16_32(this.bloco.ime);
+      this.result = Convercao.decimalToBin32(Long.parseLong(this.bloco.rs, 2) + Long.parseLong(Convercao.signExtend16_32(this.bloco.ime), 2));
     } 
     else if (func.equals("beq")) {
       Long resultado = Long.parseLong(this.bloco.rs, 2) - Long.parseLong(this.bloco.rt, 2);

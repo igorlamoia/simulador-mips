@@ -65,7 +65,41 @@ public class Registradores {
 			padrao = "$t2";
 		}
 		return padrao;
+	}
 
+	public static String enderecoMemoriaParaNomeMemoria(String endereco){
+		
+		String nome = "";
+		
+		switch (endereco) {
+			case "0x00000000":
+				nome = "address1";
+				break;
+			case "0x00000004":
+				nome = "address2";
+				break;
+			case "0x00000008":
+				nome = "address3";
+				break;
+			case "0x0000000c":
+				nome = "address4";
+				break;
+			case "0x00000010":
+				nome = "address5";
+				break;
+			case "0x00000014":
+				nome = "address6";
+				break;
+			case "0x00000018":
+				nome = "address7";
+				break;
+			case "0x0000001c":
+				nome = "address8";
+				break;
+			default:
+				break;
+			}
+		return nome;
 	}
 
 }

@@ -16,10 +16,19 @@ public class Convercao {
   public static String binToHex0x(String binario)  {
       return "0x"+binToHex(binario);
   }
+
+  public static String signExtend16_32(String binario)  {
+    for(int i = binario.length(); i < 32; i ++)
+      binario = "0"+binario;  
+    return binario;
+  }
   
+  
+
   public static String hexToBin(String hex) {
     return new BigInteger(hex, 16).toString(2);
   }
+
   public static String hexToBin32(String hex) {
     String bin = new BigInteger(hex, 16).toString(2);
     for(int i = bin.length(); i < 32; i ++)
@@ -37,6 +46,9 @@ public class Convercao {
 
   public static String decimalToHex (int inteiro) {
     return Long.toString(inteiro, 16);
+  }
+  public static String decimalToBin32 (Long inteiro) {
+    return signExtend16_32(Long.toString(inteiro, 2));
   }
 
   public static Long hexToDec (String hex) {
