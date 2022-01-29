@@ -16,14 +16,19 @@ public class ALU {
   public String alu(String func) {
      if(func.equals("add") || func.equals("sub") || func.equals("and") || func.equals("or") || func.equals("slt")) {
       
+      // Pegar valores dentro dos Registradores RS, RT, RD
+      this.bloco.rs = this.bloco.mips.getRegistrador(Registradores.numeroRegParaNome(this.bloco.rs));
+      this.bloco.rt = this.bloco.mips.getRegistrador(Registradores.numeroRegParaNome(this.bloco.rt));
+      this.bloco.rd = this.bloco.mips.getRegistrador(Registradores.numeroRegParaNome(this.bloco.rd));
+
       switch (this.bloco.fn) {
         case "100000":
         // valor = valor_alu1 + valor_alu2;
-        this.result = Integer.toBinaryString((Integer.parseInt(this.bloco.rs, 2) + Integer.parseInt(this.bloco.rt, 2)));
+        this.result = Integer.toBinaryString((Integer.parseInt(this.bloco.rs, 2) + Integer.parseInt(this.bloco.rd, 2)));
         break;
         case "100010":
         // valor = valor_alu1 - valor_alu2;
-        this.result = Integer.toBinaryString((Integer.parseInt(this.bloco.rs, 2) - Integer.parseInt(this.bloco.rt, 2)));
+          this.result = Integer.toBinaryString((Integer.parseInt(this.bloco.rs, 2) + Integer.parseInt(this.bloco.rt, 2)));
         break;
         case "100100":
         // valor = valor_alu1 AND valor_alu2

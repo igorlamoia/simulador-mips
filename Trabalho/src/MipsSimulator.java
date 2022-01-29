@@ -5,6 +5,8 @@
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+
+import helpers.Convercao;
 /**
  *
  * @author Igor Lamoia Queiroz
@@ -108,25 +110,31 @@ public class MipsSimulator extends javax.swing.JFrame {
                 this.jTextPC.setText(valor);
                 break;
             case "rs":
-                this.jTextRs.setText(valor);
-                this.jTextRs.setBackground(Color.cyan);
                 this.jTextLinhaRs.setVisible(true);
                 this.jLabelLinhaRs.setVisible(true);
                 this.jTextLinhaRs.setText(valor);
                 break;
+            case "rsValue":
+                this.jTextRs.setText(Convercao.binToHex0x(valor));
+                this.jTextRs.setBackground(Color.cyan);
+                break;
             case "rt":
-                this.jTextRt.setText(valor);
-                this.jTextRt.setBackground(Color.cyan);
                 this.jTextLinhaRt.setVisible(true);
                 this.jLabelLinhaRt.setVisible(true);
                 this.jTextLinhaRt.setText(valor);
                 break;
+            case "rtValue":
+                this.jTextRt.setText(Convercao.binToHex0x(valor));
+                this.jTextRt.setBackground(Color.cyan);
+                break;
             case "rd":
-                this.jTextRd.setText(valor);
-                this.jTextRd.setBackground(Color.cyan);
                 this.jTextLinhaRd.setVisible(true);
                 this.jLabelLinhaRd.setVisible(true);
                 this.jTextLinhaRd.setText(valor);
+                break;
+            case "rdValue":
+                this.jTextRd.setText(Convercao.binToHex0x(valor));
+                this.jTextRd.setBackground(Color.cyan);
                 break;
             case "fn":
                 this.jTextFn.setText(valor);
@@ -164,97 +172,140 @@ public class MipsSimulator extends javax.swing.JFrame {
     public void setRegistrador(String nomeReg, String valor) {
         switch (nomeReg) {
             case "$s0":
-                this.jTextS0.setText(valor);
+                this.jTextS0.setText(Convercao.binToHex0x(valor));
                 this.$s0 = valor;
                 this.jTextS0.setBackground(Color.green);
                 break;
             case "$s1":
-                this.jTextS1.setText(valor);
+                this.jTextS1.setText(Convercao.binToHex0x(valor));
                 this.$s1 = valor;
                 this.jTextS1.setBackground(Color.green);
                 break;
             case "$s2":
-                this.jTextS2.setText(valor);
+                this.jTextS2.setText(Convercao.binToHex0x(valor));
                 this.$s2 = valor;
                 this.jTextS2.setBackground(Color.green);
                 break;
             case "$s3":
-                this.jTextS3.setText(valor);
+                this.jTextS3.setText(Convercao.binToHex0x(valor));
                 this.$s3 = valor;
                 this.jTextS3.setBackground(Color.green);
                 break;
             case "$s4":
-                this.jTextS4.setText(valor);
+                this.jTextS4.setText(Convercao.binToHex0x(valor));
                 this.$s4 = valor;
                 this.jTextS4.setBackground(Color.green);
                 break;
             case "$s5":
-                this.jTextS5.setText(valor);
+                this.jTextS5.setText(Convercao.binToHex0x(valor));
                 this.$s5 = valor;
                 this.jTextS5.setBackground(Color.green);
                 break;
             case "$s6":
-                this.jTextS6.setText(valor);
+                this.jTextS6.setText(Convercao.binToHex0x(valor));
                 this.$s6 = valor;
                 this.jTextS6.setBackground(Color.green);
                 break;
             case "$s7":
-                this.jTextS7.setText(valor);
+                this.jTextS7.setText(Convercao.binToHex0x(valor));
                 this.$s7 = valor;
                 this.jTextS7.setBackground(Color.green);
                 break;
             case "$t0":
-                this.jTextT0.setText(valor);
+                this.jTextT0.setText(Convercao.binToHex0x(valor));
                 this.$t0 = valor;
                 this.jTextT0.setBackground(Color.green);
                 break;
             case "$t1":
-                this.jTextT1.setText(valor);
+                this.jTextT1.setText(Convercao.binToHex0x(valor));
                 this.$t1 = valor;
                 this.jTextT1.setBackground(Color.green);
                 break;
             case "$t2":
-                this.jTextT2.setText(valor);
+                this.jTextT2.setText(Convercao.binToHex0x(valor));
                 this.$t2 = valor;
                 this.jTextT2.setBackground(Color.green);
                 break;
             case "$t3":
-                this.jTextT3.setText(valor);
+                this.jTextT3.setText(Convercao.binToHex0x(valor));
                 this.$t3 = valor;
                 this.jTextT3.setBackground(Color.green);
                 break;
             case "$t4":
-                this.jTextT4.setText(valor);
+                this.jTextT4.setText(Convercao.binToHex0x(valor));
                 this.$t4 = valor;
                 this.jTextT4.setBackground(Color.green);
                 break;
             case "$t5":
-                this.jTextT5.setText(valor);
+                this.jTextT5.setText(Convercao.binToHex0x(valor));
                 this.$t5 = valor;
                 this.jTextT5.setBackground(Color.green);
                 break;
             case "$t6":
-                this.jTextT6.setText(valor);
+                this.jTextT6.setText(Convercao.binToHex0x(valor));
                 this.$t6 = valor;
                 this.jTextT6.setBackground(Color.green);
                 break;
             case "$t7":
-                this.jTextT7.setText(valor);
+                this.jTextT7.setText(Convercao.binToHex0x(valor));
                 this.$t7 = valor;
                 this.jTextT7.setBackground(Color.green);
                 break;
             case "$t8":
-                this.jTextT8.setText(valor);
+                this.jTextT8.setText(Convercao.binToHex0x(valor));
                 this.$t8 = valor;
                 this.jTextT8.setBackground(Color.green);
                 break;
             case "$t9":
-                this.jTextT9.setText(valor);
+                this.jTextT9.setText(Convercao.binToHex0x(valor));
                 this.$t9 = valor;
                 this.jTextT9.setBackground(Color.green);
                 break;
             default:
                 break;
+        }
+    } 
+
+    public String getRegistrador(String nomeReg) {
+        switch (nomeReg) {
+            case "$s0":
+                return this.$s0;
+            case "$s1":
+                return this.$s1;
+            case "$s2":
+                return this.$s2;
+            case "$s3":
+                return this.$s3;
+            case "$s4":
+                return this.$s4;
+            case "$s5":
+                return this.$s5;
+            case "$s6":
+                return this.$s6;
+            case "$s7":
+                return this.$s7;
+            case "$t0":
+                return this.$t0;
+            case "$t1":
+                return this.$t1;
+            case "$t2":
+                return this.$t2;
+            case "$t3":
+                return this.$t3;
+            case "$t4":
+                return this.$t4;
+            case "$t5":
+                return this.$t5;
+            case "$t6":
+                return this.$t6;
+            case "$t7":
+                return this.$t7;
+            case "$t8":
+                return this.$t8;
+            case "$t9":
+                return this.$t9;
+            default:
+                return "";
         }
     } 
 
@@ -268,6 +319,8 @@ public class MipsSimulator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrameAlerta = new javax.swing.JFrame();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabelPC = new javax.swing.JLabel();
         jTextPC = new javax.swing.JTextField();
@@ -389,6 +442,25 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextValueZero = new javax.swing.JTextField();
         jTextZero = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+
+        jLabel2.setText("Você mamou com esse erro!");
+
+        javax.swing.GroupLayout jFrameAlertaLayout = new javax.swing.GroupLayout(jFrameAlerta.getContentPane());
+        jFrameAlerta.getContentPane().setLayout(jFrameAlertaLayout);
+        jFrameAlertaLayout.setHorizontalGroup(
+            jFrameAlertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameAlertaLayout.createSequentialGroup()
+                .addContainerGap(106, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
+        );
+        jFrameAlertaLayout.setVerticalGroup(
+            jFrameAlertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameAlertaLayout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(174, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -1741,24 +1813,24 @@ public class MipsSimulator extends javax.swing.JFrame {
     }
 
     public void pegarValorDosRegistradoresNaInterface () {
-        this.$s0 = this.jTextS0.getText();
-        this.$s1 = this.jTextS1.getText();
-        this.$s2 = this.jTextS2.getText();
-        this.$s3 = this.jTextS3.getText();
-        this.$s4 = this.jTextS4.getText();
-        this.$s5 = this.jTextS5.getText();
-        this.$s6 = this.jTextS6.getText();
-        this.$s7 = this.jTextS7.getText();
-        this.$t0 = this.jTextT0.getText();
-        this.$t1 = this.jTextT1.getText();
-        this.$t2 = this.jTextT2.getText();
-        this.$t3 = this.jTextT3.getText();
-        this.$t4 = this.jTextT4.getText();
-        this.$t5 = this.jTextT5.getText();
-        this.$t6 = this.jTextT6.getText();
-        this.$t7 = this.jTextT7.getText();
-        this.$t8 = this.jTextT8.getText();
-        this.$t9 = this.jTextT9.getText();
+        this.$s0 = Convercao.hex0xToBin(this.jTextS0.getText());
+        this.$s1 = Convercao.hex0xToBin(this.jTextS1.getText());
+        this.$s2 = Convercao.hex0xToBin(this.jTextS2.getText());
+        this.$s3 = Convercao.hex0xToBin(this.jTextS3.getText());
+        this.$s4 = Convercao.hex0xToBin(this.jTextS4.getText());
+        this.$s5 = Convercao.hex0xToBin(this.jTextS5.getText());
+        this.$s6 = Convercao.hex0xToBin(this.jTextS6.getText());
+        this.$s7 = Convercao.hex0xToBin(this.jTextS7.getText());
+        this.$t0 = Convercao.hex0xToBin(this.jTextT0.getText());
+        this.$t1 = Convercao.hex0xToBin(this.jTextT1.getText());
+        this.$t2 = Convercao.hex0xToBin(this.jTextT2.getText());
+        this.$t3 = Convercao.hex0xToBin(this.jTextT3.getText());
+        this.$t4 = Convercao.hex0xToBin(this.jTextT4.getText());
+        this.$t5 = Convercao.hex0xToBin(this.jTextT5.getText());
+        this.$t6 = Convercao.hex0xToBin(this.jTextT6.getText());
+        this.$t7 = Convercao.hex0xToBin(this.jTextT7.getText());
+        this.$t8 = Convercao.hex0xToBin(this.jTextT8.getText());
+        this.$t9 = Convercao.hex0xToBin(this.jTextT9.getText());
     }
     public void limparValorDosRegistradoresNaInterface () {
         this.jTextS0.setText(this.VALOR_PADRAO);
@@ -1787,7 +1859,9 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JButton jButton_clock_up;
     private javax.swing.JButton jButton_reset;
     private javax.swing.JButton jButton_run;
+    private javax.swing.JFrame jFrameAlerta;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelAdress;
     private javax.swing.JLabel jLabelAdressValue;
     private javax.swing.JLabel jLabelImagem;

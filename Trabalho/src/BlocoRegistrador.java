@@ -20,9 +20,13 @@ public class BlocoRegistrador {
        this.mips.setInterface("rt", this.rt);
        this.mips.setInterface("rd", this.rd);
        this.mips.setInterface("fn", this.fn);
-       String resultado = new ALU(this).alu(func);
        String nomeReg = Registradores.numeroRegParaNome(this.rd);
+       String resultado = new ALU(this).alu(func); // Troco o valor de RD, do número para o valor real
        this.mips.setRegistrador(nomeReg, resultado);
+       // Após ter mudado para o valor real dentro
+       this.mips.setInterface("rsValue", this.rs);
+       this.mips.setInterface("rtValue", this.rt);
+       this.mips.setInterface("rdValue", this.rd);
        this.mips.setInterface("dadosLeitura1", this.rs);
        this.mips.setInterface("dadosLeitura2", this.rt);
       }
