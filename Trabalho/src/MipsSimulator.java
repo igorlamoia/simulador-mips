@@ -91,6 +91,18 @@ public class MipsSimulator extends javax.swing.JFrame {
     
     public void setInterface(String campo, String valor) {
         switch (campo) {
+            case "ALUZero":
+                this.jTextALUZero.setText(valor); // 0 ou 1
+                this.jTextALUZero.setBackground(Color.cyan);
+            break;
+            case "saidaALU":
+                this.jTextSaidaALU.setText(Convercao.binToHex0x(valor));
+                this.jTextSaidaALU.setBackground(Color.cyan);
+            break;
+            case "dadosEscrita":
+                this.jTextDadosParaEscrita.setText(Convercao.binToHex0x(valor));
+                this.jTextDadosParaEscrita.setBackground(Color.cyan);
+            break;
             case "enderecoDeLeitura":
                 this.jTextEnderecoDeLeitura.setText(valor);
                 this.enderecoDeLeitura = valor;
@@ -171,6 +183,11 @@ public class MipsSimulator extends javax.swing.JFrame {
 
     public void setRegistrador(String nomeReg, String valor) {
         switch (nomeReg) {
+            case "$zero":
+                this.jTextZero.setText(Convercao.binToHex0x(valor));
+                this.$s0 = valor;
+                this.jTextZero.setBackground(Color.green);
+                break;
             case "$s0":
                 this.jTextS0.setText(Convercao.binToHex0x(valor));
                 this.$s0 = valor;
@@ -268,6 +285,8 @@ public class MipsSimulator extends javax.swing.JFrame {
 
     public String getRegistrador(String nomeReg) {
         switch (nomeReg) {
+            case "$zero":
+                return this.$zero;
             case "$s0":
                 return this.$s0;
             case "$s1":
@@ -319,8 +338,6 @@ public class MipsSimulator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFrameAlerta = new javax.swing.JFrame();
-        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabelPC = new javax.swing.JLabel();
         jTextPC = new javax.swing.JTextField();
@@ -338,6 +355,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextAdd2 = new javax.swing.JTextField();
         jTextALUDadosLeitura1 = new javax.swing.JTextField();
         jTextALUDadosLeitura2 = new javax.swing.JTextField();
+        jTextALUZero = new javax.swing.JTextField();
         jTextSaidaALU = new javax.swing.JTextField();
         jTextDadosEscrita_MemoriaDeDados = new javax.swing.JTextField();
         jPanelCodigoLinha = new javax.swing.JPanel();
@@ -443,25 +461,6 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextZero = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
 
-        jLabel2.setText("Você mamou com esse erro!");
-
-        javax.swing.GroupLayout jFrameAlertaLayout = new javax.swing.GroupLayout(jFrameAlerta.getContentPane());
-        jFrameAlerta.getContentPane().setLayout(jFrameAlertaLayout);
-        jFrameAlertaLayout.setHorizontalGroup(
-            jFrameAlertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameAlertaLayout.createSequentialGroup()
-                .addContainerGap(106, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
-        );
-        jFrameAlertaLayout.setVerticalGroup(
-            jFrameAlertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrameAlertaLayout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(174, Short.MAX_VALUE))
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -505,7 +504,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextRs.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
         jTextRs.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextRs.setEnabled(false);
-        jPanel2.add(jTextRs, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 450, 110, 40));
+        jPanel2.add(jTextRs, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 450, 90, 40));
 
         jTextRt.setBackground(new java.awt.Color(255, 255, 255));
         jTextRt.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -515,7 +514,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextRt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
         jTextRt.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextRt.setEnabled(false);
-        jPanel2.add(jTextRt, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 100, 40));
+        jPanel2.add(jTextRt, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 90, 40));
 
         jTextRd.setBackground(new java.awt.Color(255, 255, 255));
         jTextRd.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -525,7 +524,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextRd.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
         jTextRd.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextRd.setEnabled(false);
-        jPanel2.add(jTextRd, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, 100, 40));
+        jPanel2.add(jTextRd, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, 90, 40));
 
         jTextDadosParaEscrita.setBackground(new java.awt.Color(255, 255, 255));
         jTextDadosParaEscrita.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -612,7 +611,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextALUDadosLeitura1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
         jTextALUDadosLeitura1.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextALUDadosLeitura1.setEnabled(false);
-        jPanel2.add(jTextALUDadosLeitura1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 440, 90, 30));
+        jPanel2.add(jTextALUDadosLeitura1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 440, 90, 30));
 
         jTextALUDadosLeitura2.setBackground(new java.awt.Color(255, 255, 255));
         jTextALUDadosLeitura2.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -623,6 +622,16 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextALUDadosLeitura2.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextALUDadosLeitura2.setEnabled(false);
         jPanel2.add(jTextALUDadosLeitura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 630, 90, 30));
+
+        jTextALUZero.setBackground(new java.awt.Color(255, 255, 255));
+        jTextALUZero.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jTextALUZero.setForeground(new java.awt.Color(204, 204, 204));
+        jTextALUZero.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextALUZero.setText("0");
+        jTextALUZero.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
+        jTextALUZero.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        jTextALUZero.setEnabled(false);
+        jPanel2.add(jTextALUZero, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 400, 30, 30));
 
         jTextSaidaALU.setBackground(new java.awt.Color(255, 255, 255));
         jTextSaidaALU.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -1813,6 +1822,7 @@ public class MipsSimulator extends javax.swing.JFrame {
     }
 
     public void pegarValorDosRegistradoresNaInterface () {
+        this.$zero = Convercao.hex0xToBin(this.jTextZero.getText());
         this.$s0 = Convercao.hex0xToBin(this.jTextS0.getText());
         this.$s1 = Convercao.hex0xToBin(this.jTextS1.getText());
         this.$s2 = Convercao.hex0xToBin(this.jTextS2.getText());
@@ -1833,6 +1843,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         this.$t9 = Convercao.hex0xToBin(this.jTextT9.getText());
     }
     public void limparValorDosRegistradoresNaInterface () {
+        this.jTextZero.setText(this.VALOR_PADRAO);
         this.jTextS0.setText(this.VALOR_PADRAO);
         this.jTextS1.setText(this.VALOR_PADRAO);
         this.jTextS2.setText(this.VALOR_PADRAO);
@@ -1859,9 +1870,7 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JButton jButton_clock_up;
     private javax.swing.JButton jButton_reset;
     private javax.swing.JButton jButton_run;
-    private javax.swing.JFrame jFrameAlerta;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelAdress;
     private javax.swing.JLabel jLabelAdressValue;
     private javax.swing.JLabel jLabelImagem;
@@ -1883,6 +1892,7 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextALUDadosLeitura1;
     private javax.swing.JTextField jTextALUDadosLeitura2;
+    private javax.swing.JTextField jTextALUZero;
     private javax.swing.JTextField jTextAdd1;
     private javax.swing.JTextField jTextAdd2;
     private javax.swing.JTextField jTextAdress1;
