@@ -66,7 +66,7 @@ public class MemoriaInstrucao {
       new Controle(this.mips).controleInstrucao31_26(this.bloco.op, func);
       this.mips.setInterface("enderecoDeLeitura", Converter.binParaHexa(instrucao));
     } 
-    this.mips.setInterface("pcHexa", Integer.toString(this.mips.PC * 4, 16));
+    this.mips.setInterface("pcHexa", Long.toString(this.mips.PC * 4, 16));
     return "";
     // return controleInstrucao31_26("ssss", Infos.instrucaoDaLinha(linha));
   }

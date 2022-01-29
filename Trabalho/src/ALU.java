@@ -18,17 +18,20 @@ public class ALU {
       
       // Pegar valores dentro dos Registradores RS, RT, RD
       this.bloco.rs = this.bloco.mips.getRegistrador(Registradores.numeroRegParaNome(this.bloco.rs));
+      System.out.println("Valor Atual antes da Alu RS"+this.bloco.rs);
       this.bloco.rt = this.bloco.mips.getRegistrador(Registradores.numeroRegParaNome(this.bloco.rt));
+      System.out.println("Valor Atual antes da Alu RT"+this.bloco.rt);
       this.bloco.rd = this.bloco.mips.getRegistrador(Registradores.numeroRegParaNome(this.bloco.rd));
+      System.out.println("Valor Atual antes da Alu RD"+this.bloco.rd);
 
       switch (this.bloco.fn) {
         case "100000":
         // valor = valor_alu1 + valor_alu2;
-        this.result = Integer.toBinaryString((Integer.parseInt(this.bloco.rs, 2) + Integer.parseInt(this.bloco.rd, 2)));
+        this.result = Long.toBinaryString((Long.parseLong(this.bloco.rs, 2) + Long.parseLong(this.bloco.rd, 2)));
         break;
         case "100010":
         // valor = valor_alu1 - valor_alu2;
-          this.result = Integer.toBinaryString((Integer.parseInt(this.bloco.rs, 2) + Integer.parseInt(this.bloco.rt, 2)));
+          this.result = Long.toBinaryString((Long.parseLong(this.bloco.rs, 2) + Long.parseLong(this.bloco.rt, 2)));
         break;
         case "100100":
         // valor = valor_alu1 AND valor_alu2
@@ -50,7 +53,7 @@ public class ALU {
         break;
         case "101010":
         // valor = valor_alu1 SLT valor_alu2
-        if(Integer.parseInt(this.bloco.rs, 2) < Integer.parseInt(this.bloco.rt, 2))
+        if(Long.parseLong(this.bloco.rs, 2) < Long.parseLong(this.bloco.rt, 2))
           this.result = "1";
         else
           this.result = "0";
@@ -77,9 +80,9 @@ public class ALU {
     else if (func.equals("j")) {
     } 
     // int valor = 0;
-    // valor_alu1 = Integer.parseInt(valor_alu1, 16);  
-    // valor_alu2 = Integer.parseInt(valor_alu2, 16);
-    // valor_alu2 = Integer.toString(Integer.parseInt(valor_alu2, 2), 16);
+    // valor_alu1 = Long.parseLong(valor_alu1, 16);  
+    // valor_alu2 = Long.parseLong(valor_alu2, 16);
+    // valor_alu2 = Long.toString(Long.parseLong(valor_alu2, 2), 16);
 
     // if(aluOp.equals("10")) { // TIPO R
     //    break;

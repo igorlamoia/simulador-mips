@@ -7,7 +7,7 @@ public class Convercao {
     System.out.println("Oia o bicho: "+ binario);
     System.out.println("Tamanho do bicho: "+ binario.length());
     String hex = "";
-    hex = Integer.toString(Integer.parseInt(binario, 2), 16);
+    hex = Long.toString(Long.parseLong(binario, 2), 16);
       for(int i = hex.length(); i < 8; i++)
               hex = "0"+hex;
       return hex;
@@ -36,10 +36,10 @@ public class Convercao {
   }
 
   public static String decimalToHex (int inteiro) {
-    return Integer.toString(inteiro, 16);
+    return Long.toString(inteiro, 16);
   }
 
-  public static int hexToDec (String hex) {
-    return Integer.parseInt(hex,16);
+  public static Long hexToDec (String hex) {
+    return Long.parseLong(hex,16);
   }
 }
