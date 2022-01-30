@@ -69,6 +69,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         this.memoriaInstrucao = new MemoriaInstrucao(this); // this -> Classe Mips inteira sendo passada como parâmetro
         initComponents();
         this.jTextLinhaLida.setEnabled(false); // Nunca deixar linha habilitada, somente leitura
+        this.sumirComLabels(); // Sumindo com as labels
         this.jTextAreaConsole.setText(new String (
             "or $s2, $s1, $s0 # comentário inútil\n"
             +"and $s3, $s0, $s2\n"
@@ -257,11 +258,44 @@ public class MipsSimulator extends javax.swing.JFrame {
             case "op":
                 this.jLabelLinhaOp.setVisible(true);
                 this.enderecoDeLeitura = valor;
-                this.jLabelLinhaOp.setBackground(Color.cyan);
+            break;
+            case "rd":
+                this.jTextLinhaRd.setVisible(true);
+                this.jLabelLinhaRd.setVisible(true);
+                this.jTextLinhaRd.setText(valor);
+            break;
+            case "rt":
+                this.jTextLinhaRt.setVisible(true);
+                this.jLabelLinhaRt.setVisible(true);
+                this.jTextLinhaRt.setText(valor);
+            break;
+            case "rs":
+                this.jTextLinhaRs.setVisible(true);
+                this.jLabelLinhaRs.setVisible(true);
+                this.jTextLinhaRs.setText(valor);
+            break;
+            case "sh":
+                this.jTextLinhaSh.setVisible(true);
+                this.jLabelLinhaSh.setVisible(true);
+                this.jTextLinhaSh.setText(valor);
+            break;
+            case "fn":
+                this.jTextLinhaFn.setVisible(true);
+                this.jLabelLinhaFn.setVisible(true);
+                this.jTextLinhaFn.setText(valor);
+            break;
+            case "ime":
+                this.jTextLinhaIme.setVisible(true);
+                this.jLabelLinhaIme.setVisible(true);
+                this.jTextLinhaIme.setText(valor);
+            break;
+            case "address":
+                this.jTextLinhaAddress.setVisible(true);
+                this.jLabelLinhaAddress.setVisible(true);
+                this.jTextLinhaAddress.setText(valor);
             break;
         }
     }
-
 
     public void setRegistrador(String nomeReg, String valor) {
         switch (nomeReg) {
@@ -451,6 +485,10 @@ public class MipsSimulator extends javax.swing.JFrame {
         jLabelLinhaSh = new javax.swing.JLabel();
         jLabelLinhaFn = new javax.swing.JLabel();
         jTextLinhaSh = new javax.swing.JTextField();
+        jTextLinhaIme = new javax.swing.JTextField();
+        jLabelLinhaIme = new javax.swing.JLabel();
+        jTextLinhaAddress = new javax.swing.JTextField();
+        jLabelLinhaAddress = new javax.swing.JLabel();
         jLabelImagem = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaConsole = new javax.swing.JTextArea();
@@ -785,6 +823,30 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextLinhaSh.setText("00000");
         jTextLinhaSh.setFocusable(false);
         jPanelCodigoLinha.add(jTextLinhaSh, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+
+        jTextLinhaIme.setEditable(false);
+        jTextLinhaIme.setColumns(5);
+        jTextLinhaIme.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextLinhaIme.setText("00000");
+        jTextLinhaIme.setFocusable(false);
+        jPanelCodigoLinha.add(jTextLinhaIme, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 180, -1));
+
+        jLabelLinhaIme.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelLinhaIme.setText("IME (16)");
+        jLabelLinhaIme.setToolTipText("");
+        jPanelCodigoLinha.add(jLabelLinhaIme, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 60, 20));
+
+        jTextLinhaAddress.setEditable(false);
+        jTextLinhaAddress.setColumns(5);
+        jTextLinhaAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextLinhaAddress.setText("00000");
+        jTextLinhaAddress.setFocusable(false);
+        jPanelCodigoLinha.add(jTextLinhaAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 310, -1));
+
+        jLabelLinhaAddress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelLinhaAddress.setText("ADDRESS (26)");
+        jLabelLinhaAddress.setToolTipText("");
+        jPanelCodigoLinha.add(jLabelLinhaAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 100, 20));
 
         jPanel2.add(jPanelCodigoLinha, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 660, 460, 200));
 
@@ -1660,7 +1722,6 @@ public class MipsSimulator extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_clock_downAction
 
     private void jButton_clock_upAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_clock_upAction
-        // TODO add your handling code here:
         this.limpaLinhaBlocos();
         jButton_clock_up.setEnabled(false);
         jButton_clock_down.setEnabled(true);
@@ -1842,6 +1903,20 @@ public class MipsSimulator extends javax.swing.JFrame {
         this.jTextDadosParaEscrita.setVisible(false);
         this.jTextALUDadosLeitura1.setVisible(false);
         this.jTextALUDadosLeitura2.setVisible(false);
+        this.jTextLinhaRd.setVisible(false);
+        this.jLabelLinhaRd.setVisible(false);
+        this.jTextLinhaRt.setVisible(false);
+        this.jLabelLinhaRt.setVisible(false);
+        this.jTextLinhaRs.setVisible(false);
+        this.jLabelLinhaRs.setVisible(false);
+        this.jTextLinhaIme.setVisible(false);
+        this.jLabelLinhaIme.setVisible(false);
+        this.jTextLinhaAddress.setVisible(false);
+        this.jLabelLinhaAddress.setVisible(false);
+        this.jTextLinhaSh.setVisible(false);
+        this.jLabelLinhaSh.setVisible(false);
+        this.jTextLinhaFn.setVisible(false);
+        this.jLabelLinhaFn.setVisible(false);
     }
 
     public void resetarCoresRegisters() {
@@ -1990,7 +2065,9 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelAdress;
     private javax.swing.JLabel jLabelAdressValue;
     private javax.swing.JLabel jLabelImagem;
+    private javax.swing.JLabel jLabelLinhaAddress;
     private javax.swing.JLabel jLabelLinhaFn;
+    private javax.swing.JLabel jLabelLinhaIme;
     private javax.swing.JLabel jLabelLinhaOp;
     private javax.swing.JLabel jLabelLinhaRd;
     private javax.swing.JLabel jLabelLinhaRs;
@@ -2033,7 +2110,9 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JTextField jTextEnderecoDeLeitura;
     private javax.swing.JTextField jTextFn;
     private javax.swing.JTextField jTextIme;
+    private javax.swing.JTextField jTextLinhaAddress;
     private javax.swing.JTextField jTextLinhaFn;
+    private javax.swing.JTextField jTextLinhaIme;
     private javax.swing.JTextField jTextLinhaLida;
     private javax.swing.JTextField jTextLinhaOp;
     private javax.swing.JTextField jTextLinhaRd;

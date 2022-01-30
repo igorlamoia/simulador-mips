@@ -53,4 +53,7 @@ public class Convercao {
   public static Long hexToDec (String hex) {
     return Long.parseLong(hex,16);
   }
+  public static Integer binToDec (String hex) {
+    return Integer.parseInt(hex,2);
+  }
 }
