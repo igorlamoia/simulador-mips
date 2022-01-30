@@ -222,8 +222,8 @@ public class MipsSimulator extends javax.swing.JFrame {
                 this.jTextRt.setBackground(Color.cyan);
                 break;
             case "rd":
-                this.jTextLinhaRd.setVisible(true);
-                this.jLabelLinhaRd.setVisible(true);
+                // this.jTextLinhaRd.setVisible(true);
+                // this.jLabelLinhaRd.setVisible(true);
                 this.jTextLinhaRd.setText(valor);
                 break;
             case "rdValue":
@@ -1713,7 +1713,7 @@ public class MipsSimulator extends javax.swing.JFrame {
     private void jButton_clock_downAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_clock_downAction
         // TODO add your handling code here:
         jButton_clock_down.setEnabled(false);
-        if(PC > (codigoCompilado.size()-1)) 
+        if(PC >= (codigoCompilado.size()-1)) 
             jButton_clock_up.setEnabled(false);
         else 
             jButton_clock_up.setEnabled(true);
@@ -1897,6 +1897,14 @@ public class MipsSimulator extends javax.swing.JFrame {
         this.jTextFn.setBackground(Color.white);
         this.jTextIme.setText("-------");
         this.jTextIme.setBackground(Color.white);
+        this.jTextIme.setText("-------");
+        this.jTextEnderecoDeLeitura.setBackground(Color.white);
+        this.jTextEnderecoDeLeitura.setText("-------");
+        this.jTextControleDescricao.setBackground(Color.white);
+        this.jTextControleDescricao.setText(" ");
+        this.jTextControleValor.setBackground(Color.white);
+        this.jTextControleValor.setText(" ");
+        this.jTextLinhaOp.setText("000000");
     }
 
     public void sumirComLabels () {
@@ -2056,6 +2064,15 @@ public class MipsSimulator extends javax.swing.JFrame {
         this.jTextALUDadosLeitura1.setText(this.VALOR_PADRAO);
         this.jTextALUDadosLeitura2.setText(this.VALOR_PADRAO);
         this.jTextALUZero.setText("0");
+        this.jTextPC.setText(this.VALOR_PADRAO);
+        this.jTextEnderecoDeLeitura.setBackground(Color.white);
+        this.jTextEnderecoDeLeitura.setText("-------");
+        this.jTextControleDescricao.setBackground(Color.white);
+        this.jTextControleDescricao.setText(" ");
+        this.jTextControleValor.setBackground(Color.white);
+        this.jTextControleValor.setText(" ");
+        this.jTextLinhaOp.setText("000000");
+        this.limpaLinhaBlocos();
         this.pegarValorDosRegistradoresNaInterface(); // Para limpar as variáveis também
     }
 
