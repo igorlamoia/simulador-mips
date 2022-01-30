@@ -42,9 +42,7 @@ public class BlocoRegistrador {
       String resultado = new ALU(this).alu(func); // valor de memória para ser buscado
       this.mips.setInterface("saidaALU", resultado);
       this.mips.setInterface("dadosEscrita", resultado);
-      System.out.println("Resultado: " + resultado);
       String valorNaMemoria = this.mips.getAddress(Registradores.enderecoMemoriaParaNomeMemoria(Convercao.binToHex0x(resultado)));
-      System.out.println("Valor na memória: " + valorNaMemoria);
       this.mips.setInterface("rdValue", valorNaMemoria);
       this.mips.setRegistrador(nome, valorNaMemoria);
     }

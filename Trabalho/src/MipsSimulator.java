@@ -68,7 +68,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         this.alu = new ALU(this); // this -> Classe Mips inteira sendo passada como parâmetro
         this.memoriaInstrucao = new MemoriaInstrucao(this); // this -> Classe Mips inteira sendo passada como parâmetro
         initComponents();
-
+        this.jTextLinhaLida.setEnabled(false); // Nunca deixar linha habilitada, somente leitura
         this.jTextAreaConsole.setText(new String (
             "or $s2, $s1, $s0 # comentário inútil\n"
             +"and $s3, $s0, $s2\n"
@@ -93,27 +93,35 @@ public class MipsSimulator extends javax.swing.JFrame {
         switch (campo) {
             case "address1":
                 this.jTextAdressValue1.setText(Convercao.binToHex0x(valor));
+                this.jTextAdressValue1.setBackground(Color.cyan);
                 break;
             case "address2":
                 this.jTextAdressValue2.setText(Convercao.binToHex0x(valor));
+                this.jTextAdressValue2.setBackground(Color.cyan);
                 break;
             case "address3":
                 this.jTextAdressValue3.setText(Convercao.binToHex0x(valor));
+                this.jTextAdressValue3.setBackground(Color.cyan);
                 break;
             case "address4":
                 this.jTextAdressValue4.setText(Convercao.binToHex0x(valor));
+                this.jTextAdressValue4.setBackground(Color.cyan);
                 break;
             case "address5":
                 this.jTextAdressValue5.setText(Convercao.binToHex0x(valor));
+                this.jTextAdressValue5.setBackground(Color.cyan);
                 break;
             case "address6":
                 this.jTextAdressValue6.setText(Convercao.binToHex0x(valor));
+                this.jTextAdressValue6.setBackground(Color.cyan);
                 break;
             case "address7":
                 this.jTextAdressValue7.setText(Convercao.binToHex0x(valor));
+                this.jTextAdressValue7.setBackground(Color.cyan);
                 break;
             case "address8":
                 this.jTextAdressValue8.setText(Convercao.binToHex0x(valor));
+                this.jTextAdressValue8.setBackground(Color.cyan);
                 break;
             default:
                 break;
@@ -124,20 +132,28 @@ public class MipsSimulator extends javax.swing.JFrame {
     public String getAddress (String campo) {
         switch (campo) {
             case "address1":
+                this.jTextAdress1.setBackground(Color.cyan);
                 return Convercao.hex0xToBin(this.jTextAdressValue1.getText());
             case "address2":
+                this.jTextAdress2.setBackground(Color.cyan);
                 return Convercao.hex0xToBin(this.jTextAdressValue2.getText());
             case "address3":
+                this.jTextAdress3.setBackground(Color.cyan);
                 return Convercao.hex0xToBin(this.jTextAdressValue3.getText());
             case "address4":
+                this.jTextAdress4.setBackground(Color.cyan);
                 return Convercao.hex0xToBin(this.jTextAdressValue4.getText());
             case "address5":
+                this.jTextAdress5.setBackground(Color.cyan);
                 return Convercao.hex0xToBin(this.jTextAdressValue5.getText());
             case "address6":
+                this.jTextAdress6.setBackground(Color.cyan);
                 return Convercao.hex0xToBin(this.jTextAdressValue6.getText());
             case "address7":
+                this.jTextAdress7.setBackground(Color.cyan);
                 return Convercao.hex0xToBin(this.jTextAdressValue7.getText());
             case "address8":
+                this.jTextAdress8.setBackground(Color.cyan);
                 return Convercao.hex0xToBin(this.jTextAdressValue8.getText());
             default:
                 System.out.println("Não existe essa posição");
@@ -213,24 +229,24 @@ public class MipsSimulator extends javax.swing.JFrame {
                 this.jTextRd.setBackground(Color.cyan);
                 break;
             case "fn":
-                this.jTextFn.setText(valor);
+                this.jTextFn.setText(Convercao.binToHex0x(valor));
                 this.jTextFn.setBackground(Color.cyan);
                 this.jTextLinhaFn.setVisible(true);
                 this.jLabelLinhaFn.setVisible(true);
                 this.jTextLinhaFn.setText(valor);
                 break;
             case "ime":
-                this.jTextIme.setText(valor);
+                this.jTextIme.setText(Convercao.binToHex0x(valor));
                 this.jTextIme.setBackground(Color.cyan);
                 break;
             case "dadosLeitura1":
                 this.jTextALUDadosLeitura1.setVisible(true);
-                this.jTextALUDadosLeitura1.setText(valor);    
+                this.jTextALUDadosLeitura1.setText(Convercao.binToHex0x(valor));    
                 this.jTextALUDadosLeitura1.setBackground(Color.cyan);
                 break;
             case "dadosLeitura2":
                 this.jTextALUDadosLeitura2.setVisible(true);
-                this.jTextALUDadosLeitura2.setText(valor);    
+                this.jTextALUDadosLeitura2.setText(Convercao.binToHex0x(valor));    
                 this.jTextALUDadosLeitura2.setBackground(Color.cyan);
                 break;
         }
@@ -685,7 +701,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextSaidaALU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
         jTextSaidaALU.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextSaidaALU.setEnabled(false);
-        jPanel2.add(jTextSaidaALU, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 540, 90, 40));
+        jPanel2.add(jTextSaidaALU, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 540, 100, 40));
 
         jTextDadosEscrita_MemoriaDeDados.setBackground(new java.awt.Color(255, 255, 255));
         jTextDadosEscrita_MemoriaDeDados.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -695,7 +711,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextDadosEscrita_MemoriaDeDados.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
         jTextDadosEscrita_MemoriaDeDados.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextDadosEscrita_MemoriaDeDados.setEnabled(false);
-        jPanel2.add(jTextDadosEscrita_MemoriaDeDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 650, -1, 40));
+        jPanel2.add(jTextDadosEscrita_MemoriaDeDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 650, 100, 40));
 
         jPanelCodigoLinha.setBackground(new java.awt.Color(255, 255, 255));
         jPanelCodigoLinha.setForeground(new java.awt.Color(255, 255, 255));
@@ -1830,6 +1846,22 @@ public class MipsSimulator extends javax.swing.JFrame {
         this.jTextT7.setBackground(Color.LIGHT_GRAY);
         this.jTextT8.setBackground(Color.LIGHT_GRAY);
         this.jTextT9.setBackground(Color.LIGHT_GRAY);
+        this.jTextAdressValue1.setBackground(Color.white);
+        this.jTextAdressValue2.setBackground(Color.white);
+        this.jTextAdressValue3.setBackground(Color.white);
+        this.jTextAdressValue4.setBackground(Color.white);
+        this.jTextAdressValue5.setBackground(Color.white);
+        this.jTextAdressValue6.setBackground(Color.white);
+        this.jTextAdressValue7.setBackground(Color.white);
+        this.jTextAdressValue8.setBackground(Color.white);
+        this.jTextAdress1.setBackground(Color.white);
+        this.jTextAdress2.setBackground(Color.white);
+        this.jTextAdress3.setBackground(Color.white);
+        this.jTextAdress4.setBackground(Color.white);
+        this.jTextAdress5.setBackground(Color.white);
+        this.jTextAdress6.setBackground(Color.white);
+        this.jTextAdress7.setBackground(Color.white);
+        this.jTextAdress8.setBackground(Color.white);
     }
 
     public void desabilitaRegisters() {

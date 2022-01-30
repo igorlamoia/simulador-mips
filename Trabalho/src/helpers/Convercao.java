@@ -4,8 +4,7 @@ import java.math.BigInteger;
 public class Convercao {
   
   public static String binToHex(String binario)  {
-    System.out.println("Oia o bicho: "+ binario);
-    System.out.println("Tamanho do bicho: "+ binario.length());
+
     String hex = "";
     hex = Long.toString(Long.parseLong(binario, 2), 16);
       for(int i = hex.length(); i < 8; i++)

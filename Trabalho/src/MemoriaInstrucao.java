@@ -1,3 +1,5 @@
+import helpers.Convercao;
+
 public class MemoriaInstrucao {
   
   MipsSimulator mips;
@@ -12,14 +14,6 @@ public class MemoriaInstrucao {
   public String lerLinha(String linha) {
     String func = Infos.instrucaoDaLinha(linha);
     String instrucao = Infos.linhaParaBinario(linha);
-    // this.bloco.op = "";
-    // this.bloco.rs = "";
-    // this.bloco.rt = "";
-    // this.bloco.rd = "";
-    // this.bloco.sh = "";
-    // this.bloco.fn = "";
-    // this.bloco.ime = "";
-    // this.bloco.adrs = "";
     //TIPO R
     if(func.equals("add") || func.equals("sub") || func.equals("and") || func.equals("or") || func.equals("slt")) {
       this.bloco.op = instrucao.substring(0,6);
@@ -66,7 +60,7 @@ public class MemoriaInstrucao {
       new Controle(this.mips).controleInstrucao31_26(this.bloco.op, func);
       this.mips.setInterface("enderecoDeLeitura", Converter.binParaHexa(instrucao));
     } 
-    this.mips.setInterface("pcHexa", Long.toString(this.mips.PC * 4, 16));
+    this.mips.setInterface("pcHexa", Convercao.binToHex0x(Long.toString(this.mips.PC * 4, 2)));
     return "";
     // return controleInstrucao31_26("ssss", Infos.instrucaoDaLinha(linha));
   }
