@@ -94,7 +94,7 @@ public class MipsSimulator extends javax.swing.JFrame {
             case "address1":
                 this.jTextAdressValue1.setText(Convercao.binToHex0x(valor));
                 break;
-            case "adress2":
+            case "address2":
                 this.jTextAdressValue2.setText(Convercao.binToHex0x(valor));
                 break;
             case "address3":
@@ -120,24 +120,25 @@ public class MipsSimulator extends javax.swing.JFrame {
         }
     }
 
+    // Pega o valor em cada endereço
     public String getAddress (String campo) {
         switch (campo) {
             case "address1":
-                return this.jTextAdressValue1.getText();
+                return Convercao.hex0xToBin(this.jTextAdressValue1.getText());
             case "adress2":
-                return this.jTextAdressValue2.getText();
+                return Convercao.hex0xToBin(this.jTextAdressValue2.getText());
             case "address3":
-                return this.jTextAdressValue3.getText();
+                return Convercao.hex0xToBin(this.jTextAdressValue3.getText());
             case "address4":
-                return this.jTextAdressValue4.getText();
+                return Convercao.hex0xToBin(this.jTextAdressValue4.getText());
             case "address5":
-                return this.jTextAdressValue5.getText();
+                return Convercao.hex0xToBin(this.jTextAdressValue5.getText());
             case "address6":
-                return this.jTextAdressValue6.getText();
+                return Convercao.hex0xToBin(this.jTextAdressValue6.getText());
             case "address7":
-                return this.jTextAdressValue7.getText();
+                return Convercao.hex0xToBin(this.jTextAdressValue7.getText());
             case "address8":
-                return this.jTextAdressValue8.getText();
+                return Convercao.hex0xToBin(this.jTextAdressValue8.getText());
             default:
                 System.out.println("Não existe essa posição");
                 return VALOR_PADRAO;
@@ -410,8 +411,6 @@ public class MipsSimulator extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextControleValor = new javax.swing.JTextField();
         jTextControleDescricao = new javax.swing.JTextField();
-        jTextAdd1 = new javax.swing.JTextField();
-        jTextAdd2 = new javax.swing.JTextField();
         jTextALUDadosLeitura1 = new javax.swing.JTextField();
         jTextALUDadosLeitura2 = new javax.swing.JTextField();
         jTextALUZero = new javax.swing.JTextField();
@@ -641,26 +640,6 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextControleDescricao.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jTextControleDescricao.setEnabled(false);
         jPanel2.add(jTextControleDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(867, 270, 90, 20));
-
-        jTextAdd1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextAdd1.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        jTextAdd1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextAdd1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextAdd1.setText("0x00000000");
-        jTextAdd1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
-        jTextAdd1.setDisabledTextColor(new java.awt.Color(51, 51, 51));
-        jTextAdd1.setEnabled(false);
-        jPanel2.add(jTextAdd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, 90, 20));
-
-        jTextAdd2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextAdd2.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        jTextAdd2.setForeground(new java.awt.Color(204, 204, 204));
-        jTextAdd2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextAdd2.setText("0x00000000");
-        jTextAdd2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 204, 255)));
-        jTextAdd2.setDisabledTextColor(new java.awt.Color(51, 51, 51));
-        jTextAdd2.setEnabled(false);
-        jPanel2.add(jTextAdd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 150, 90, 20));
 
         jTextALUDadosLeitura1.setBackground(new java.awt.Color(255, 255, 255));
         jTextALUDadosLeitura1.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -1921,6 +1900,18 @@ public class MipsSimulator extends javax.swing.JFrame {
         this.jTextT7.setText(this.VALOR_PADRAO);
         this.jTextT8.setText(this.VALOR_PADRAO);
         this.jTextT9.setText(this.VALOR_PADRAO);
+        this.jTextAdressValue1.setText(this.VALOR_PADRAO);
+        this.jTextAdressValue2.setText(this.VALOR_PADRAO);
+        this.jTextAdressValue3.setText(this.VALOR_PADRAO);
+        this.jTextAdressValue4.setText(this.VALOR_PADRAO);
+        this.jTextAdressValue5.setText(this.VALOR_PADRAO);
+        this.jTextAdressValue6.setText(this.VALOR_PADRAO);
+        this.jTextAdressValue7.setText(this.VALOR_PADRAO);
+        this.jTextAdressValue8.setText(this.VALOR_PADRAO);
+        this.jTextDadosParaEscrita.setText(this.VALOR_PADRAO);
+        this.jTextALUDadosLeitura1.setText(this.VALOR_PADRAO);
+        this.jTextALUDadosLeitura2.setText(this.VALOR_PADRAO);
+        this.jTextALUZero.setText("0");
         this.pegarValorDosRegistradoresNaInterface(); // Para limpar as variáveis também
     }
 
@@ -1952,8 +1943,6 @@ public class MipsSimulator extends javax.swing.JFrame {
     private javax.swing.JTextField jTextALUDadosLeitura1;
     private javax.swing.JTextField jTextALUDadosLeitura2;
     private javax.swing.JTextField jTextALUZero;
-    private javax.swing.JTextField jTextAdd1;
-    private javax.swing.JTextField jTextAdd2;
     private javax.swing.JTextField jTextAdress1;
     private javax.swing.JTextField jTextAdress2;
     private javax.swing.JTextField jTextAdress3;

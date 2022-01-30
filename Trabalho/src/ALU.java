@@ -67,21 +67,16 @@ public class ALU {
       // this.bloco.setInterface("rs", this.bloco.rs);
       // this.bloco.setInterface("rd", this.bloco.rt); // De propósito
       // this.bloco.setInterface("ime", this.bloco.ime);
+      this.result = Convercao.decimalToBin32(Long.parseLong(this.bloco.rs, 2) + Long.parseLong(Convercao.signExtend16_32(this.bloco.ime), 2));
     }
     else if (func.equals("sw")) {
-      // this.bloco.setInterface("rt", this.bloco.rt);
-      // this.bloco.setInterface("ime", this.bloco.ime);
-      // this.bloco.setInterface("rs", this.bloco.rs);
-      // this.bloco.ime = Convercao.signExtend16_32(this.bloco.ime);
       this.result = Convercao.decimalToBin32(Long.parseLong(this.bloco.rs, 2) + Long.parseLong(Convercao.signExtend16_32(this.bloco.ime), 2));
     } 
     else if (func.equals("beq")) {
       Long resultado = Long.parseLong(this.bloco.rs, 2) - Long.parseLong(this.bloco.rt, 2);
-      System.out.println("Resultadooo: "+resultado);
       if(resultado == 0) {
         // this.bloco.mips.setInterface("rdValue", "1");
         this.bloco.mips.setInterface("ALUZero", "1");
-        System.out.println("VAI POHA");
       }
       else
         this.bloco.mips.setInterface("ALUZero", "0");

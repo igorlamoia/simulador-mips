@@ -37,7 +37,16 @@ public class BlocoRegistrador {
     else if (func.equals("lw")) {
       this.mips.setInterface("rs", this.rs);
       this.mips.setInterface("rd", this.rt); // De propósito
+      String nome = Registradores.numeroRegParaNome(this.rt);
       this.mips.setInterface("ime", this.ime);
+      String resultado = new ALU(this).alu(func); // valor de memória para ser buscado
+      this.mips.setInterface("saidaALU", resultado);
+      this.mips.setInterface("dadosEscrita", resultado);
+      System.out.println("Resultado: " + resultado);
+      String valorNaMemoria = this.mips.getAddress(Registradores.enderecoMemoriaParaNomeMemoria(Convercao.binToHex0x(resultado)));
+      System.out.println("Valor na memória: " + valorNaMemoria);
+      this.mips.setInterface("rdValue", valorNaMemoria);
+      this.mips.setRegistrador(nome, valorNaMemoria);
     }
     else if (func.equals("sw")) {
       this.mips.setInterface("rs", this.rs);
