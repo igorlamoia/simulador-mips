@@ -246,97 +246,97 @@ public class MipsSimulator extends javax.swing.JFrame {
             case "$zero":
                 this.jTextZero.setText(Convercao.binToHex0x(valor));
                 this.$s0 = valor;
-                this.jTextZero.setBackground(Color.green);
+                this.jTextZero.setBackground(Color.cyan);
                 break;
             case "$s0":
                 this.jTextS0.setText(Convercao.binToHex0x(valor));
                 this.$s0 = valor;
-                this.jTextS0.setBackground(Color.green);
+                this.jTextS0.setBackground(Color.cyan);
                 break;
             case "$s1":
                 this.jTextS1.setText(Convercao.binToHex0x(valor));
                 this.$s1 = valor;
-                this.jTextS1.setBackground(Color.green);
+                this.jTextS1.setBackground(Color.cyan);
                 break;
             case "$s2":
                 this.jTextS2.setText(Convercao.binToHex0x(valor));
                 this.$s2 = valor;
-                this.jTextS2.setBackground(Color.green);
+                this.jTextS2.setBackground(Color.cyan);
                 break;
             case "$s3":
                 this.jTextS3.setText(Convercao.binToHex0x(valor));
                 this.$s3 = valor;
-                this.jTextS3.setBackground(Color.green);
+                this.jTextS3.setBackground(Color.cyan);
                 break;
             case "$s4":
                 this.jTextS4.setText(Convercao.binToHex0x(valor));
                 this.$s4 = valor;
-                this.jTextS4.setBackground(Color.green);
+                this.jTextS4.setBackground(Color.cyan);
                 break;
             case "$s5":
                 this.jTextS5.setText(Convercao.binToHex0x(valor));
                 this.$s5 = valor;
-                this.jTextS5.setBackground(Color.green);
+                this.jTextS5.setBackground(Color.cyan);
                 break;
             case "$s6":
                 this.jTextS6.setText(Convercao.binToHex0x(valor));
                 this.$s6 = valor;
-                this.jTextS6.setBackground(Color.green);
+                this.jTextS6.setBackground(Color.cyan);
                 break;
             case "$s7":
                 this.jTextS7.setText(Convercao.binToHex0x(valor));
                 this.$s7 = valor;
-                this.jTextS7.setBackground(Color.green);
+                this.jTextS7.setBackground(Color.cyan);
                 break;
             case "$t0":
                 this.jTextT0.setText(Convercao.binToHex0x(valor));
                 this.$t0 = valor;
-                this.jTextT0.setBackground(Color.green);
+                this.jTextT0.setBackground(Color.cyan);
                 break;
             case "$t1":
                 this.jTextT1.setText(Convercao.binToHex0x(valor));
                 this.$t1 = valor;
-                this.jTextT1.setBackground(Color.green);
+                this.jTextT1.setBackground(Color.cyan);
                 break;
             case "$t2":
                 this.jTextT2.setText(Convercao.binToHex0x(valor));
                 this.$t2 = valor;
-                this.jTextT2.setBackground(Color.green);
+                this.jTextT2.setBackground(Color.cyan);
                 break;
             case "$t3":
                 this.jTextT3.setText(Convercao.binToHex0x(valor));
                 this.$t3 = valor;
-                this.jTextT3.setBackground(Color.green);
+                this.jTextT3.setBackground(Color.cyan);
                 break;
             case "$t4":
                 this.jTextT4.setText(Convercao.binToHex0x(valor));
                 this.$t4 = valor;
-                this.jTextT4.setBackground(Color.green);
+                this.jTextT4.setBackground(Color.cyan);
                 break;
             case "$t5":
                 this.jTextT5.setText(Convercao.binToHex0x(valor));
                 this.$t5 = valor;
-                this.jTextT5.setBackground(Color.green);
+                this.jTextT5.setBackground(Color.cyan);
                 break;
             case "$t6":
                 this.jTextT6.setText(Convercao.binToHex0x(valor));
                 this.$t6 = valor;
-                this.jTextT6.setBackground(Color.green);
+                this.jTextT6.setBackground(Color.cyan);
                 break;
             case "$t7":
                 this.jTextT7.setText(Convercao.binToHex0x(valor));
                 this.$t7 = valor;
-                this.jTextT7.setBackground(Color.green);
+                this.jTextT7.setBackground(Color.cyan);
                 break;
             case "$t8":
                 this.jTextT8.setText(Convercao.binToHex0x(valor));
                 this.$t8 = valor;
-                this.jTextT8.setBackground(Color.green);
+                this.jTextT8.setBackground(Color.cyan);
                 break;
             case "$t9":
                 this.jTextT9.setText(Convercao.binToHex0x(valor));
                 this.$t9 = valor;
-                this.jTextT9.setBackground(Color.green);
+                this.jTextT9.setBackground(Color.cyan);
                 break;
             default:
                 break;
