@@ -718,8 +718,10 @@ public class MipsSimulator extends javax.swing.JFrame {
         jPanelCodigoLinha.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextLinhaOp.setEditable(false);
+        jTextLinhaOp.setColumns(5);
         jTextLinhaOp.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextLinhaOp.setText("000000");
+        jTextLinhaOp.setFocusable(false);
         jPanelCodigoLinha.add(jTextLinhaOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabelLinhaOp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -727,8 +729,10 @@ public class MipsSimulator extends javax.swing.JFrame {
         jPanelCodigoLinha.add(jLabelLinhaOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 60, 20));
 
         jTextLinhaRs.setEditable(false);
+        jTextLinhaRs.setColumns(5);
         jTextLinhaRs.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextLinhaRs.setText("00000");
+        jTextLinhaRs.setFocusable(false);
         jPanelCodigoLinha.add(jTextLinhaRs, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jLabelLinhaRs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -737,8 +741,10 @@ public class MipsSimulator extends javax.swing.JFrame {
         jPanelCodigoLinha.add(jLabelLinhaRs, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 60, 20));
 
         jTextLinhaRt.setEditable(false);
+        jTextLinhaRt.setColumns(5);
         jTextLinhaRt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextLinhaRt.setText("00000");
+        jTextLinhaRt.setFocusable(false);
         jPanelCodigoLinha.add(jTextLinhaRt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         jLabelLinhaRt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -746,8 +752,10 @@ public class MipsSimulator extends javax.swing.JFrame {
         jPanelCodigoLinha.add(jLabelLinhaRt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 60, 20));
 
         jTextLinhaRd.setEditable(false);
+        jTextLinhaRd.setColumns(5);
         jTextLinhaRd.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextLinhaRd.setText("00000");
+        jTextLinhaRd.setFocusable(false);
         jPanelCodigoLinha.add(jTextLinhaRd, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
 
         jLabelLinhaRd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -756,8 +764,10 @@ public class MipsSimulator extends javax.swing.JFrame {
         jPanelCodigoLinha.add(jLabelLinhaRd, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 60, 20));
 
         jTextLinhaFn.setEditable(false);
+        jTextLinhaFn.setColumns(5);
         jTextLinhaFn.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextLinhaFn.setText("00000");
+        jTextLinhaFn.setFocusable(false);
         jPanelCodigoLinha.add(jTextLinhaFn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
         jLabelLinhaSh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -770,8 +780,10 @@ public class MipsSimulator extends javax.swing.JFrame {
         jPanelCodigoLinha.add(jLabelLinhaFn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 60, 20));
 
         jTextLinhaSh.setEditable(false);
+        jTextLinhaSh.setColumns(5);
         jTextLinhaSh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextLinhaSh.setText("00000");
+        jTextLinhaSh.setFocusable(false);
         jPanelCodigoLinha.add(jTextLinhaSh, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         jPanel2.add(jPanelCodigoLinha, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 660, 460, 200));
@@ -796,7 +808,8 @@ public class MipsSimulator extends javax.swing.JFrame {
         jButton_clock_up.setBorder(null);
         jButton_clock_up.setBorderPainted(false);
         jButton_clock_up.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton_clock_up.setEnabled(false);
+        jButton_clock_up.setFocusPainted(false);
+        jButton_clock_up.setFocusable(false);
         jButton_clock_up.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_clock_up.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -811,7 +824,8 @@ public class MipsSimulator extends javax.swing.JFrame {
         jButton_clock_down.setBorder(null);
         jButton_clock_down.setBorderPainted(false);
         jButton_clock_down.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton_clock_down.setEnabled(false);
+        jButton_clock_down.setFocusPainted(false);
+        jButton_clock_down.setFocusable(false);
         jButton_clock_down.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_clock_down.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -828,6 +842,8 @@ public class MipsSimulator extends javax.swing.JFrame {
         jButton_run.setBorder(null);
         jButton_run.setBorderPainted(false);
         jButton_run.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_run.setFocusPainted(false);
+        jButton_run.setFocusable(false);
         jButton_run.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_run.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -844,6 +860,8 @@ public class MipsSimulator extends javax.swing.JFrame {
         jButton_reset.setBorder(null);
         jButton_reset.setBorderPainted(false);
         jButton_reset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_reset.setFocusPainted(false);
+        jButton_reset.setFocusable(false);
         jButton_reset.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
