@@ -125,7 +125,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         switch (campo) {
             case "address1":
                 return Convercao.hex0xToBin(this.jTextAdressValue1.getText());
-            case "adress2":
+            case "address2":
                 return Convercao.hex0xToBin(this.jTextAdressValue2.getText());
             case "address3":
                 return Convercao.hex0xToBin(this.jTextAdressValue3.getText());
@@ -148,18 +148,22 @@ public class MipsSimulator extends javax.swing.JFrame {
     public void setInterface(String campo, String valor) {
         switch (campo) {
             case "escritaMemoriaDados":
+                this.jTextDadosEscrita_MemoriaDeDados.setVisible(true);
                 this.jTextDadosEscrita_MemoriaDeDados.setText(Convercao.binToHex0x(valor));
                 this.jTextDadosEscrita_MemoriaDeDados.setBackground(Color.cyan);
-            break;
-            case "ALUZero":
+                break;
+                case "ALUZero":
+                this.jTextALUZero.setVisible(true);
                 this.jTextALUZero.setText(valor); // 0 ou 1
                 this.jTextALUZero.setBackground(Color.cyan);
             break;
             case "saidaALU":
+                this.jTextSaidaALU.setVisible(true);
                 this.jTextSaidaALU.setText(Convercao.binToHex0x(valor));
                 this.jTextSaidaALU.setBackground(Color.cyan);
             break;
             case "dadosEscrita":
+                this.jTextDadosParaEscrita.setVisible(true);
                 this.jTextDadosParaEscrita.setText(Convercao.binToHex0x(valor));
                 this.jTextDadosParaEscrita.setBackground(Color.cyan);
             break;
@@ -220,10 +224,12 @@ public class MipsSimulator extends javax.swing.JFrame {
                 this.jTextIme.setBackground(Color.cyan);
                 break;
             case "dadosLeitura1":
+                this.jTextALUDadosLeitura1.setVisible(true);
                 this.jTextALUDadosLeitura1.setText(valor);    
                 this.jTextALUDadosLeitura1.setBackground(Color.cyan);
                 break;
             case "dadosLeitura2":
+                this.jTextALUDadosLeitura2.setVisible(true);
                 this.jTextALUDadosLeitura2.setText(valor);    
                 this.jTextALUDadosLeitura2.setBackground(Color.cyan);
                 break;
@@ -1617,7 +1623,6 @@ public class MipsSimulator extends javax.swing.JFrame {
             this.memoriaInstrucao.lerLinha(codigoCompilado.get(PC));
         PC++;
         jLabelPC.setText(""+PC);
-        
     }//GEN-LAST:event_jButton_clock_downAction
 
     private void jButton_clock_upAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_clock_upAction
@@ -1632,6 +1637,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         }
         jTextLinhaLida.setText(codigoCompilado.get(PC));
         this.resetarCoresRegisters();
+        this.sumirComLabels();
         
     }//GEN-LAST:event_jButton_clock_upAction
 
@@ -1728,6 +1734,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextAreaConsole.setEnabled(true);
         this.resetarCoresRegisters();
         this.limparValorDosRegistradoresNaInterface();
+        this.sumirComLabels();
     }//GEN-LAST:event_jButton_resetAction
 
     private void jButton_runAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_runAction
@@ -1792,6 +1799,15 @@ public class MipsSimulator extends javax.swing.JFrame {
         this.jTextFn.setBackground(Color.white);
         this.jTextIme.setText("-------");
         this.jTextIme.setBackground(Color.white);
+    }
+
+    public void sumirComLabels () {
+        this.jTextDadosEscrita_MemoriaDeDados.setVisible(false);
+        this.jTextALUZero.setVisible(false);
+        this.jTextSaidaALU.setVisible(false);
+        this.jTextDadosParaEscrita.setVisible(false);
+        this.jTextALUDadosLeitura1.setVisible(false);
+        this.jTextALUDadosLeitura2.setVisible(false);
     }
 
     public void resetarCoresRegisters() {
