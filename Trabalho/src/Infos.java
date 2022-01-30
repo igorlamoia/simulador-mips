@@ -1,8 +1,34 @@
 public class Infos {
-	
+
+	MemoriaInstrucao memoria;
+	public Infos (MemoriaInstrucao memoria) {
+		this.memoria = memoria; 
+	}
+
 	public static String instrucaoDaLinha (String linha) {
 		return linha.substring(0, linha.indexOf(" "));
 	} 
+
+	public String linhaParaBeq(String linha) {
+		String aux = linha;
+		String padraoBin = "";
+		String padraoHexa = "";
+		String regA = "";
+		String regB = "";
+		String regC = "";
+		String imm = "";
+
+		String instrucao = linha.substring(0, linha.indexOf(" "));
+		aux = aux.substring(aux.indexOf("$")+1);
+		regA = aux.substring(0, aux.indexOf(","));
+		aux = aux.substring(aux.indexOf("$")+1);
+		regB = aux.substring(0, aux.indexOf(","));
+		aux = aux.substring(aux.indexOf("x")+1);
+		imm = Converter.hexaParaBin_16bits(aux);
+		this.memoria.immHex = aux;
+		padraoBin = ("000100"+Registradores.registradores(regA)+Registradores.registradores(regB)+imm);
+		return padraoBin;
+	}
 
 	public static String linhaParaBinario(String linha) {
 		String aux = linha;

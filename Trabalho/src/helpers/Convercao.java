@@ -56,4 +56,15 @@ public class Convercao {
   public static Integer binToDec (String hex) {
     return Integer.parseInt(hex,2);
   }
+
+  public static Integer hexNegativoParaInteiroPositivo(String hex) {
+    Long valor = Long.parseLong(hex,16) - 1; // Subtrair por 1
+    String decimal = Long.toString(valor, 2);
+    decimal = decimal.replace('1', '2'); // Só pra não trollar a troca
+    decimal = decimal.replace('0', '1'); // 0 para 1
+    decimal = decimal.replace('2', '0'); // 1 para 0
+    System.out.println("Binario positivo: "+decimal);
+    return Integer.parseInt(decimal, 2);
+  }
+
 }

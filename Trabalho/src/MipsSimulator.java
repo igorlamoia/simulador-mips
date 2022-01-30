@@ -80,7 +80,7 @@ public class MipsSimulator extends javax.swing.JFrame {
             +"label_jump:\n"
             +"add $s5, $s5, $s0\n"
             +"slt $t0, $s1, $s5\n"
-            +"beq $t0, $zero, label_beq\n"
+            +"beq $t1, $zero, label_beq\n"
             +"j label_jump\n"
             +"label_beq:\n"
             +"sw $s5, 0($zero)\n"
