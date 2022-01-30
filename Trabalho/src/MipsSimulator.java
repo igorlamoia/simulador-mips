@@ -77,10 +77,11 @@ public class MipsSimulator extends javax.swing.JFrame {
             + "# comentário inútil\n"
             + " \n"
             +"sub $s4, $s2, $s3\n"
-            +"label_jump:\n"
             +"add $s5, $s5, $s0\n"
+            +"label_jump:\n"
             +"slt $t0, $s1, $s5\n"
-            +"beq $t1, $zero, label_beq\n"
+            +"beq $t0, $zero, label_beq\n"
+            +"add $s1, $s5, $s1\n"
             +"j label_jump\n"
             +"label_beq:\n"
             +"sw $s5, 0($zero)\n"
@@ -439,6 +440,8 @@ public class MipsSimulator extends javax.swing.JFrame {
                 return this.$t8;
             case "$t9":
                 return this.$t9;
+            case "aluZero":    
+                return this.jTextALUZero.getText();
             default:
                 return "";
         }

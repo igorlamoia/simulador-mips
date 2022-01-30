@@ -80,47 +80,10 @@ public class ALU {
       }
       else
         this.bloco.mips.setInterface("ALUZero", "0");
-        
-      // this.bloco.setInterface("rs", this.rs);
-      // this.bloco.setInterface("rt", this.rt);
-      // this.bloco.setInterface("ime", this.ime);
     } 
     else if (func.equals("j")) {
     } 
-    // int valor = 0;
-    // valor_alu1 = Long.parseLong(valor_alu1, 16);  
-    // valor_alu2 = Long.parseLong(valor_alu2, 16);
-    // valor_alu2 = Long.toString(Long.parseLong(valor_alu2, 2), 16);
-
-    // if(aluOp.equals("10")) { // TIPO R
-    //    break;
-    //   }
-    // } 
-    // else if (aluOp.equals("01")) { // Branch
-      
-    // } else if (aluOp.equals("00")) { // LW SW
-
-    // }
-    // // if(Infos.)
     return this.result;
   } 
 
-  // private String paraOndeIr (String operacao) {
-  //   switch (operacao) {
-  //     case "0010":
-  //       break;
-  //     case "0110":
-  //       break;
-  //     case "0000":
-  //       break;
-  //     case "0001":
-  //       break;
-  //     case "0111":
-  //       break;
-  //     case "0010":
-  //       break;
-  //     case "0110":
-  //       break;
-  //   }
-  // }
 }
