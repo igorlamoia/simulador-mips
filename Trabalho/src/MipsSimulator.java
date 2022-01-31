@@ -605,7 +605,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jLabel2.setText("Simulador Mips");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(-900, 0, 2310, 46);
+        jLabel2.setBounds(10, 0, 440, 46);
 
         jTextPC.setBackground(new java.awt.Color(255, 255, 255));
         jTextPC.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -1199,14 +1199,14 @@ public class MipsSimulator extends javax.swing.JFrame {
                 .addGroup(jPanelEnderecosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextAdress8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextAdressValue8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanelEnderecos);
-        jPanelEnderecos.setBounds(10, 590, 210, 276);
+        jPanelEnderecos.setBounds(10, 590, 210, 290);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 7, 1650, 901);
+        jPanel2.setBounds(0, -2, 1650, 910);
 
         jPanelRegistradores.setBackground(new java.awt.Color(231, 254, 254));
         jPanelRegistradores.setLayout(null);
@@ -1796,7 +1796,7 @@ public class MipsSimulator extends javax.swing.JFrame {
         jTextZero.setBounds(160, 180, 93, 22);
 
         getContentPane().add(jPanelRegistradores);
-        jPanelRegistradores.setBounds(1643, 7, 260, 900);
+        jPanelRegistradores.setBounds(1643, -3, 260, 911);
 
         jPanel1.setLayout(null);
         getContentPane().add(jPanel1);
