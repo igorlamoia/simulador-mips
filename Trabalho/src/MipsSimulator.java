@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.plaf.DimensionUIResource;
+
 import helpers.Convercao;
 /**
  *
@@ -584,6 +586,8 @@ public class MipsSimulator extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new DimensionUIResource(1913, 925));
+        
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(null);
 
