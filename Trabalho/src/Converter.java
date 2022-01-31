@@ -16,7 +16,7 @@ public class Converter {
     //Retorna o número hexadecimal referente, também no formato de string
 
     public static String bin6ParaHexa(String binario) {
-        return "0x"+Integer.toString(Integer.parseInt(binario, 2), 16); // !Ajustar tamanho 
+        return "0x"+Long.toString(Long.parseLong(binario, 2), 16); // !Ajustar tamanho 
     }
 
     public static String binParaHexa(String binario) {
@@ -31,14 +31,14 @@ public class Converter {
         String p7 = binario.substring(24, 28);
         String p8 = binario.substring(28, 32);
 
-        p1 = Integer.toString(Integer.parseInt(p1, 2), 16);
-        p2 = Integer.toString(Integer.parseInt(p2, 2), 16);
-        p3 = Integer.toString(Integer.parseInt(p3, 2), 16);
-        p4 = Integer.toString(Integer.parseInt(p4, 2), 16);
-        p5 = Integer.toString(Integer.parseInt(p5, 2), 16);
-        p6 = Integer.toString(Integer.parseInt(p6, 2), 16);
-        p7 = Integer.toString(Integer.parseInt(p7, 2), 16);
-        p8 = Integer.toString(Integer.parseInt(p8, 2), 16);
+        p1 = Long.toString(Long.parseLong(p1, 2), 16);
+        p2 = Long.toString(Long.parseLong(p2, 2), 16);
+        p3 = Long.toString(Long.parseLong(p3, 2), 16);
+        p4 = Long.toString(Long.parseLong(p4, 2), 16);
+        p5 = Long.toString(Long.parseLong(p5, 2), 16);
+        p6 = Long.toString(Long.parseLong(p6, 2), 16);
+        p7 = Long.toString(Long.parseLong(p7, 2), 16);
+        p8 = Long.toString(Long.parseLong(p8, 2), 16);
 
         hexa = hexa.concat(p1);
         hexa = hexa.concat(p2);
